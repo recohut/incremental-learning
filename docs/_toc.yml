@@ -25,3 +25,17 @@ parts:
   - file: L967738_MarketCloud
   - file: L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation
   - file: L576956_GLMix_in_LinkedIn_Job_Recommendation
+- caption: Tutorials
+  chapters:
+- file: T063084_Scikit_Multiflow
+- file: T578427_Dask_Incremental_Wrapper
+- file: T613575_Warm_start_Model_Retraining
+- file: T502860_Drift_Detection_using_River_library
+- file: T664430_Incremental_Stochastic_Gradient_Descent
+- file: T860884_Avalanche_Visual_Incremental_Learning
+- file: T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models
+- file: T007121_FlowRec
+- file: T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library
+- file: T406689_Kernelized_Matrix_Factorization_on_ML_1m
+- file: T993858_Incremental_Collaborative_Filtering
+- file: T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training
