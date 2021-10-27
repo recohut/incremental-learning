@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IncCTR &#8212; incremental-learning</title>
+    <title>GLMix in LinkedIn Job Recommendation &#8212; incremental-learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="SML" href="L753817_SML.html" />
-    <link rel="prev" title="GLMix" href="L498804_GLMix.html" />
+    <link rel="prev" title="Huawei AppGallery Candidate Selection for App Recommendation" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -142,14 +141,14 @@
   Models
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L498804_GLMix.html">
    GLMix
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
    IncCTR
   </a>
  </li>
@@ -184,7 +183,7 @@
   Cases
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L967738_MarketCloud.html">
    MarketCloud
@@ -195,8 +194,8 @@
    Huawei AppGallery Candidate Selection for App Recommendation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    GLMix in LinkedIn Job Recommendation
   </a>
  </li>
@@ -241,7 +240,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/L832818_IncCTR.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/L576956_GLMix_in_LinkedIn_Job_Recommendation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -266,7 +265,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/L832818_IncCTR.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/L576956_GLMix_in_LinkedIn_Job_Recommendation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -274,7 +273,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/L832818_IncCTR.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/L576956_GLMix_in_LinkedIn_Job_Recommendation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -291,34 +290,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#embedding-layer">
-   Embedding layer
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interaction-and-prediction-layers">
-   Interaction and Prediction Layers
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#batch-mode-vs-incremental-mode">
-   Batch Mode vs Incremental Mode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#framework">
-   Framework
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -327,32 +298,16 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="incctr">
-<h1>IncCTR<a class="headerlink" href="#incctr" title="Permalink to this headline">¶</a></h1>
-<p>Recently, various deep CTR models are proposed, such as DeepFM, Wide &amp; Deep, PIN, DIN, and DIEN. Generally, deep CTR models include three parts: embedding layer, interaction layer, and prediction layer.</p>
-<div class="section" id="embedding-layer">
-<h2>Embedding layer<a class="headerlink" href="#embedding-layer" title="Permalink to this headline">¶</a></h2>
-<p>In most CTR prediction tasks, data is collected in a multi-field categorical form. Each data instance is transformed into a high-dimensional sparse (binary) vector via one-hot encoding. For example, the raw data instance (Gender=Male, Height=185, Age=18, Name=Bob) can be represented as:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="glmix-in-linkedin-job-recommendation">
+<h1>GLMix in LinkedIn Job Recommendation<a class="headerlink" href="#glmix-in-linkedin-job-recommendation" title="Permalink to this headline">¶</a></h1>
+<p><center><figure><img src='_images/L576956_1.png'><figcaption>A snapshot of the LinkedIn jobs homepage.</figcaption></figure></center></p>
+<p>As the world’s largest professional social network, LinkedIn provides a unique value proposition for its over 400M+ members to connect with all kinds of professional opportunities for their career growth. One of the most important products is the Jobs Homepage, which serves as a central place for members with job seeking intention to come and find good jobs to apply for. One of the main modules on the page is “Jobs you may be interested in”, where relevant job thumbnails are recommended to members based on their public profile data and past activity on the site. If a member is interested in a recommended job, she can click on it to go to the job detail page, where the original job post is shown with information such as the job title, description, responsibilities, required skills and qualifications. The job detail page also has an “apply” button which allows the member to apply for the job with one click, either on LinkedIn or on the website of the company posting the job. One of the key success metrics for LinkedIn jobs business is the total number of job application clicks (i.e the number of clicks on the “apply” button), which is the focus for the job recommendation problem in this paper. Another second-order metric is called “job detail views”, which represents the total number of clicks generated from the “Jobs you may be interested in” module to the job details pages. We consider job application clicks to be the key metric to optimize for, instead of job detail views, because the job posters mostly care about how many applications they receive, instead of how many people view their job postings.</p>
+<p>In <span class="math notranslate nohighlight">\(n\)</span>-th observation, member <span class="math notranslate nohighlight">\(i\)</span> interacts with job <span class="math notranslate nohighlight">\(j\)</span>. The total score <span class="math notranslate nohighlight">\(s_n\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[\underbrace{(0,1)}_\text{gender=Male}\underbrace{(0,...,1,0,0)}_\text{height=185}\underbrace{(0,1,...,0,0)}_\text{age=18}\underbrace{(1,0,0,0,...,0)}_\text{name=Bob}\]</div>
-<p>An embedding layer is applied to compress the raw features to low-dimensional vectors before feeding them into neural networks. For a univalent field, (e.g., “Gender=Male”), its embedding is the feature embedding; For a multivalent field (e.g., “Interest=Football, Basketball”), the field embedding is the average of the feature embeddings.</p>
-</div>
-<div class="section" id="interaction-and-prediction-layers">
-<h2>Interaction and Prediction Layers<a class="headerlink" href="#interaction-and-prediction-layers" title="Permalink to this headline">¶</a></h2>
-<p>The key challenge in CTR prediction is modelling feature interactions. Existing deep CTR models utilize product operation and multilayer perceptron (MLP) to model the explicit and implicit feature interactions, respectively. For example, DeepFM adopts Factorization Machine to model the order-2 feature interactions and MLP to model the high-order feature interactions. After the interaction layer, the prediction <span class="math notranslate nohighlight">\(\hat{y}\)</span> is generated as the probability of the user will click on a specific item within such context. Then, the cross-entropy loss is used as the objective function: <span class="math notranslate nohighlight">\(L_{CE}(y,\hat{y}) = −y \log \hat{y} − (1−y) \log (1−\hat{y})\)</span> with <span class="math notranslate nohighlight">\(y\)</span> as the label.</p>
-</div>
-<div class="section" id="batch-mode-vs-incremental-mode">
-<h2>Batch Mode vs Incremental Mode<a class="headerlink" href="#batch-mode-vs-incremental-mode" title="Permalink to this headline">¶</a></h2>
-<p>The model trained in the batch mode is iteratively learned based on the data from a fixed-size time window. When new data is arriving, the time window slides forward. As shown in following figure, “model 0” is trained based on data from day 1 to day 10. Then when new data (namely “day 11”) is arriving, a new model (namely “model 1”) is trained based on data from day 2 to day 11. For similar procedure, “model 2” is trained on data from day 3 to day 12.</p>
-<p><center><img src='_images/L832818_1.png'></center></p>
-<p>With incremental mode, the model is trained based on the existing model and new data. As shown in the above figure, the “Model 1” is trained based on the existing model “Model 0” (which is trained on data from day 1 to day 10), and data from day 11. Then “Model 1” turns into the existing model. Consequently, when data from day 12 arrives, “Model 2” is trained based on the “Model 1” and data from day 12.</p>
-<p>As can be seen, when training with batch mode, two consecutive time window of training data overlap most of the volume. For instance, data from day 1 to day 10 and data from day 2 to day 11 overlap the part from day 2 to day 10, where 80% of the volume are shared. Under such circumstance, replacing batch mode with incremental mode improves the efficiency significantly, while such replacement is highly possible to retain the performance.</p>
-</div>
-<div class="section" id="framework">
-<h2>Framework<a class="headerlink" href="#framework" title="Permalink to this headline">¶</a></h2>
-<p><center><img src='_images/L832818_2.png'></center></p>
-<p>Three modules are designed from the perspective of feature, model and data respectively to balance the trade-off between learning from historical data and incoming data. <strong>Data module</strong> mimics the functionality of a reservoir, constructing training data from both historical data and incoming data. <strong>Feature module</strong> is designed to handle new features from incoming data and initialize both existing features and new features wisely. <strong>Model module</strong> employs knowledge distillation to fine-tune the model parameters, balancing learning knowledge from the previous model and from incoming data.</p>
-</div>
+\[s_n = x_{fixed,n}^T\beta_{fixed} + z_{per-member,n}^T\beta_{per-member,i} + z_{per-job,n}^T\beta_{per-job,j}\]</div>
+<p>The first term on the right hand side is from the fixed effects model. The second and the third term represent the contribution of per-member and per-job random effects models. <span class="math notranslate nohighlight">\(x_{fixed,n}\)</span>, <span class="math notranslate nohighlight">\(z_{per-member,n}\)</span>, <span class="math notranslate nohighlight">\(z_{per-job,n}\)</span> are feature vectors for the fixed effects model, the per-member and the per-job random effects model respectively. <span class="math notranslate nohighlight">\(β_{fixed}\)</span>, <span class="math notranslate nohighlight">\(β_{per-member,i}\)</span>, <span class="math notranslate nohighlight">\(β_{per-job,j}\)</span> are coefficients vectors for three types of models respectively. Since random effects models represent the entity propensity, they should be updated more frequently than the fixed effects model to capture the propensity change. In practice we update the fixed effects model in a much lower frequency (e.g., update monthly) than random effects models (e.g., update daily). The random effects model training often takes 6-12 hours because the training data contains millions of entities with high dimensional features. Applying incremental learning in the random effects model training is desired to promptly detect the change.</p>
+<p><center><img src='_images/L576956_2.png'></center></p>
+<p><a class="reference external" href="https://engineering.linkedin.com/blog/2020/quality-matches-via-personalized-ai">Quality matches via personalized AI for hirer and seeker preferences</a></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -385,23 +340,14 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="L498804_GLMix.html" title="previous page">
+        <a class="left-prev" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">GLMix</p>
+                <p class="prevnext-title">Huawei AppGallery Candidate Selection for App Recommendation</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="L753817_SML.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">SML</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
