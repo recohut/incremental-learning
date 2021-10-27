@@ -20,3 +20,8 @@ parts:
   - file: L958254_GraphSAIL
   - file: L926913_NMRN
   - file: L766388_RKMF
+- caption: Cases
+  chapters:
+  - file: L967738_MarketCloud
+  - file: L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation
+  - file: L576956_GLMix_in_LinkedIn_Job_Recommendation
