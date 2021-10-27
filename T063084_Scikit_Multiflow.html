@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scikit warm-start &#8212; incremental-learning</title>
+    <title>Scikit Multiflow &#8212; incremental-learning</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GLMix" href="L498804_GLMix.html" />
-    <link rel="prev" title="Lambda Learner" href="L595800_Lambda_Learner.html" />
+    <link rel="next" title="Dask Incremental Wrapper" href="T578427_Dask_Incremental_Wrapper.html" />
+    <link rel="prev" title="GLMix in LinkedIn Job Recommendation" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -93,7 +93,7 @@
   Concepts
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="L194114_Concept_Drift.html">
    Concept Drift
@@ -129,8 +129,8 @@
    Lambda Learner
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
    Scikit warm-start
   </a>
  </li>
@@ -204,9 +204,9 @@
   Tutorials
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Scikit Multiflow
   </a>
  </li>
@@ -306,7 +306,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/L305905_Scikit_warm_start.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/T063084_Scikit_Multiflow.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -331,7 +331,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/L305905_Scikit_warm_start.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T063084_Scikit_Multiflow.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -339,7 +339,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/L305905_Scikit_warm_start.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T063084_Scikit_Multiflow.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -362,31 +362,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scaling-with-instances-using-out-of-core-learning">
-   <strong>
-    Scaling with instances using out-of-core learning
-   </strong>
+  <a class="reference internal nav-link" href="#setup">
+   Setup
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#streaming-instances">
-   <strong>
-    Streaming instances
-   </strong>
+  <a class="reference internal nav-link" href="#train-and-test-a-stream-classification-model-in-scikit-multiflow">
+   Train and test a stream classification model in scikit-multiflow
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extracting-features">
-   <strong>
-    Extracting features
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#incremental-learning">
-   <strong>
-    Incremental learning
-   </strong>
+  <a class="reference internal nav-link" href="#adaptive-sliding-window-adwin-for-concept-drift-detection">
+   Adaptive Sliding Window (ADWIN) for concept-drift detection
   </a>
  </li>
 </ul>
@@ -400,32 +387,118 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="scikit-warm-start">
-<h1>Scikit warm-start<a class="headerlink" href="#scikit-warm-start" title="Permalink to this headline">¶</a></h1>
-<p>For some applications the amount of examples, features (or both) and/or the speed at which they need to be processed are challenging for traditional approaches. In these cases scikit-learn has a number of options you can consider to make your system scale.</p>
-<div class="section" id="scaling-with-instances-using-out-of-core-learning">
-<h2><strong>Scaling with instances using out-of-core learning</strong><a class="headerlink" href="#scaling-with-instances-using-out-of-core-learning" title="Permalink to this headline">¶</a></h2>
-<p>Out-of-core (or “external memory”) learning is a technique used to learn from data that cannot fit in a computer’s main memory (RAM).</p>
-<p>Here is sketch of a system designed to achieve this goal:</p>
-<ol class="simple">
-<li><p>a way to stream instances</p></li>
-<li><p>a way to extract features from instances</p></li>
-<li><p>an incremental algorithm</p></li>
-</ol>
+  <div class="tex2jax_ignore mathjax_ignore section" id="scikit-multiflow">
+<h1>Scikit Multiflow<a class="headerlink" href="#scikit-multiflow" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install -U scikit-multiflow
+</pre></div>
 </div>
-<div class="section" id="streaming-instances">
-<h2><strong>Streaming instances</strong><a class="headerlink" href="#streaming-instances" title="Permalink to this headline">¶</a></h2>
-<p>Basically, (1. a way to stream instances) may be a reader that yields instances from files on a hard drive, a database, from a network stream etc. However, details on how to achieve this are beyond the scope of this documentation.</p>
 </div>
-<div class="section" id="extracting-features">
-<h2><strong>Extracting features</strong><a class="headerlink" href="#extracting-features" title="Permalink to this headline">¶</a></h2>
-<p>(2. a way to extract features from instances) could be any relevant way to extract features among the different <em><a class="reference external" href="https://scikit-learn.org/0.15/modules/feature_extraction.html#feature-extraction">feature extraction</a></em> methods supported by scikit-learn. However, when working with data that needs vectorization and where the set of features or values is not known in advance one should take explicit care. A good example is text classification where unknown terms are likely to be found during training. It is possible to use a stateful vectorizer if making multiple passes over the data is reasonable from an application point of view. Otherwise, one can turn up the difficulty by using a stateless feature extractor. Currently the preferred way to do this is to use the so-called <em><a class="reference external" href="https://scikit-learn.org/0.15/modules/feature_extraction.html#feature-hashing">hashing trick</a></em> as implemented by <strong><a class="reference external" href="https://scikit-learn.org/0.15/modules/generated/sklearn.feature_extraction.FeatureHasher.html#sklearn.feature_extraction.FeatureHasher">sklearn.feature_extraction.FeatureHasher</a></strong> for datasets with categorical variables represented as list of Python dicts or <strong><a class="reference external" href="https://scikit-learn.org/0.15/modules/generated/sklearn.feature_extraction.text.HashingVectorizer.html#sklearn.feature_extraction.text.HashingVectorizer">sklearn.feature_extraction.text.HashingVectorizer</a></strong> for text documents.</p>
 </div>
-<div class="section" id="incremental-learning">
-<h2><strong>Incremental learning</strong><a class="headerlink" href="#incremental-learning" title="Permalink to this headline">¶</a></h2>
-<p>Finally, for (3. an incremental algorithm), we have a number of options inside scikit-learn. Although all algorithms cannot learn incrementally (i.e. without seeing all the instances at once), all estimators implementing the partial_fit API are candidates. Actually, the ability to learn incrementally from a mini-batch of instances (sometimes called “online learning”) is key to out-of-core learning as it guarantees that at any given time there will be only a small amount of instances in the main memory. Choosing a good size for the mini-batch that balances relevancy and memory footprint could involve some tuning.</p>
-<p>For classification, a somewhat important thing to note is that although a stateless feature extraction routine may be able to cope with new/unseen attributes, the incremental learner itself may be unable to cope with new/unseen targets classes. In this case you have to pass all the possible classes to the first partial_fit call using the classes= parameter.</p>
-<p>Another aspect to consider when choosing a proper algorithm is that all of them don’t put the same importance on each example over time. Namely, the Perceptron is still sensitive to badly labeled examples even after many examples whereas the SGD* and PassiveAggressive* families are more robust to this kind of artifacts. Conversely, the later also tend to give less importance to remarkably different, yet properly labeled examples when they come late in the stream as their learning rate decreases over time.</p>
+</div>
+<div class="section" id="train-and-test-a-stream-classification-model-in-scikit-multiflow">
+<h2>Train and test a stream classification model in scikit-multiflow<a class="headerlink" href="#train-and-test-a-stream-classification-model-in-scikit-multiflow" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we will use a data stream to train a HoeffdingTreeClassifier and will measure its performance using prequential evaluation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skmultiflow.data</span> <span class="kn">import</span> <span class="n">WaveformGenerator</span>
+<span class="kn">from</span> <span class="nn">skmultiflow.trees</span> <span class="kn">import</span> <span class="n">HoeffdingTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">skmultiflow.evaluation</span> <span class="kn">import</span> <span class="n">EvaluatePrequential</span>
+
+<span class="c1"># 1. Create a stream</span>
+<span class="n">stream</span> <span class="o">=</span> <span class="n">WaveformGenerator</span><span class="p">()</span>
+
+<span class="c1"># 2. Instantiate the HoeffdingTreeClassifier</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">HoeffdingTreeClassifier</span><span class="p">()</span>
+
+<span class="c1"># 3. Setup the evaluator</span>
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">EvaluatePrequential</span><span class="p">(</span><span class="n">show_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                <span class="n">pretrain_size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                                <span class="n">max_samples</span><span class="o">=</span><span class="mi">20000</span><span class="p">)</span>
+
+<span class="c1"># 4. Run evaluation</span>
+<span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">ht</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prequential Evaluation
+Evaluating 1 target(s).
+Pre-training on 200 sample(s).
+Evaluating...
+ #################### [100%] [20.98s]
+Processed samples: 20000
+Mean performance:
+M0 - Accuracy     : 0.7890
+M0 - Kappa        : 0.6835
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[HoeffdingTreeClassifier(binary_split=False, grace_period=200,
+                         leaf_prediction=&#39;nba&#39;, max_byte_size=33554432,
+                         memory_estimate_period=1000000, nb_threshold=0,
+                         no_preprune=False, nominal_attributes=None,
+                         remove_poor_atts=False, split_confidence=1e-07,
+                         split_criterion=&#39;info_gain&#39;, stop_mem_management=False,
+                         tie_threshold=0.05)]
+</pre></div>
+</div>
+</div>
+</div>
+<img src='https://scikit-multiflow.readthedocs.io/en/stable/_images/example_classifier_plot.gif'></div>
+<div class="section" id="adaptive-sliding-window-adwin-for-concept-drift-detection">
+<h2>Adaptive Sliding Window (ADWIN) for concept-drift detection<a class="headerlink" href="#adaptive-sliding-window-adwin-for-concept-drift-detection" title="Permalink to this headline">¶</a></h2>
+<p>ADWIN adjusts the mean values of the objects and keeps those below a threshold level (epsilon). If the mean values significantly deviate from a threshold, it deletes the corresponding old part. It is adaptive to the changing data. For instance, if the change is taking place the window size will shrink automatically, else if the data is stationary the window size will grow to improve the accuracy.</p>
+<p>The intuition behind using ADWIN is to keep statistics from a window of variable size while detecting concept drift. By using the scikit-multiflow library I simulated a distorted data stream with a normal distribution.</p>
+<p>The code below is used for catching the concept drift in the normal distribution (with a mean of 0 and a standard deviation of 0.25). I changed the stream values with the indices between 1000 and 2000 with a different normal distribution (with a mean of 1 and a standard deviation of 0.5). Hence, I expected a width change (decrease) between the stream values 1000 till 2000 and an increase in width till the end of the stream.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">skmultiflow.drift_detection.adwin</span> <span class="kn">import</span> <span class="n">ADWIN</span>
+
+<span class="n">adwin</span> <span class="o">=</span> <span class="n">ADWIN</span><span class="p">(</span><span class="n">delta</span><span class="o">=</span><span class="mf">0.0002</span><span class="p">)</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Simulating a data stream as a normal distribution of 1&#39;s and 0&#39;s</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span>  <span class="c1"># mean and standard deviation</span>
+<span class="n">data_stream</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+
+<span class="c1"># Changing the data concept from index 1000 to 2000</span>
+<span class="n">mu_broken</span><span class="p">,</span> <span class="n">sigma_broken</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">data_stream</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">2000</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mu_broken</span><span class="p">,</span> <span class="n">sigma_broken</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">width_vs_variance</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Adding stream elements to ADWIN and verifying if drift occurred</span>
+<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4000</span><span class="p">):</span>
+
+    <span class="n">adwin</span><span class="o">.</span><span class="n">add_element</span><span class="p">(</span><span class="n">data_stream</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">adwin</span><span class="o">.</span><span class="n">detected_change</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Change in index </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> for stream value </span><span class="si">{</span><span class="n">data_stream</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">width_vs_variance</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">adwin</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">adwin</span><span class="o">.</span><span class="n">variance</span><span class="p">,</span> <span class="n">idx</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Change in index 1055 for stream value 1.1031808856627254
+Change in index 1087 for stream value 1.0399007420293664
+Change in index 1119 for stream value 0.4800967344865579
+Change in index 1151 for stream value 1.5638901253169493
+Change in index 1247 for stream value 2.0981115710764
+Change in index 2079 for stream value -0.1125473162128529
+Change in index 2111 for stream value -0.04069822651807355
+Change in index 2143 for stream value 0.060988299477125064
+Change in index 2175 for stream value 0.5223846804236933
+Change in index 2367 for stream value -0.4268394893982367
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -459,19 +532,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="L595800_Lambda_Learner.html" title="previous page">
+        <a class="left-prev" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Lambda Learner</p>
+                <p class="prevnext-title">GLMix in LinkedIn Job Recommendation</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="L498804_GLMix.html" title="next page">
+        <a class="right-next" href="T578427_Dask_Incremental_Wrapper.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">GLMix</p>
+                <p class="prevnext-title">Dask Incremental Wrapper</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

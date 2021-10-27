@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warm-start Model Retraining &#8212; incremental-learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Drift Detection using River library" href="T502860_Drift_Detection_using_River_library.html" />
+    <link rel="prev" title="Dask Incremental Wrapper" href="T578427_Dask_Incremental_Wrapper.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">incremental-learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L521041_Incremental_Learning.html">
+   Incremental Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L194114_Concept_Drift.html">
+   Concept Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L589394_Jensen%E2%80%93Shannon_divergence.html">
+   Jensen–Shannon divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L241645_A_spectrum_of_model_freshness.html">
+   A spectrum of model freshness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L883094_Incremental_Learning_in_Computer_Vision.html">
+   Incremental Learning in Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L369117_Incremental_Learning_in_Recommender_Systems.html">
+   Incremental Learning in Recommender Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L725007_River.html">
+   River
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L595800_Lambda_Learner.html">
+   Lambda Learner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
+   Scikit warm-start
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L498804_GLMix.html">
+   GLMix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
+   IncCTR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L753817_SML.html">
+   SML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L395827_CIGC.html">
+   CIGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L958254_GraphSAIL.html">
+   GraphSAIL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L926913_NMRN.html">
+   NMRN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L766388_RKMF.html">
+   RKMF
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L967738_MarketCloud.html">
+   MarketCloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html">
+   Huawei AppGallery Candidate Selection for App Recommendation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+   GLMix in LinkedIn Job Recommendation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+   Scikit Multiflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T578427_Dask_Incremental_Wrapper.html">
+   Dask Incremental Wrapper
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Warm-start Model Retraining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T502860_Drift_Detection_using_River_library.html">
+   Drift Detection using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T664430_Incremental_Stochastic_Gradient_Descent.html">
+   Incremental Stochastic Gradient Descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T860884_Avalanche_Visual_Incremental_Learning.html">
+   Avalanche Visual Incremental Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html">
+   Lambda Learner for Incremental Learning using GLMix models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T007121_FlowRec.html">
+   FlowRec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html">
+   Incremental Matrix Factorization on ML-100k using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html">
+   Kernelized Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T993858_Incremental_Collaborative_Filtering.html">
+   Incremental Collaborative Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html">
+   Neural Memory Streaming Recommender Networks with Adversarial Training
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T613575_Warm_start_Model_Retraining.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T613575_Warm_start_Model_Retraining.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T613575_Warm_start_Model_Retraining.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retraining-update-strategies">
+   Retraining Update Strategies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-model-on-new-data-only">
+     Update Model on New Data Only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-model-on-old-and-new-data">
+     Update Model on Old and New Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemble-update-strategies">
+   Ensemble Update Strategies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-model-with-model-on-new-data-only">
+     Ensemble Model With Model on New Data Only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-model-with-model-on-old-and-new-data">
+     Ensemble Model With Model on Old and New Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="warm-start-model-retraining">
+<h1>Warm-start Model Retraining<a class="headerlink" href="#warm-start-model-retraining" title="Permalink to this headline">¶</a></h1>
+<p>Importantly, you have a lot of flexibility when it comes to responding to a change to the problem or the availability of new data.</p>
+<p>For example, you can take the trained neural network model and update the model weights using the new data. Or we might want to leave the existing model untouched and combine its predictions with a new model fit on the newly available data.</p>
+<p>These approaches might represent two general themes in updating neural network models in response to new data, they are:</p>
+<ul class="simple">
+<li><p>Retrain Update Strategies.</p></li>
+<li><p>Ensemble Update Strategies.</p></li>
+</ul>
+<p>Let’s take a closer look at each in turn.</p>
+<div class="section" id="retraining-update-strategies">
+<h2>Retraining Update Strategies<a class="headerlink" href="#retraining-update-strategies" title="Permalink to this headline">¶</a></h2>
+<p>A benefit of neural network models is that their weights can be updated at any time with continued training.</p>
+<p>When responding to changes in the underlying data or the availability of new data, there are a few different strategies to choose from when updating a neural network model, such as:</p>
+<ul class="simple">
+<li><p>Continue training the model on the new data only.</p></li>
+<li><p>Continue training the model on the old and new data.</p></li>
+</ul>
+<p>We might also imagine variations on the above strategies, such as using a sample of the new data or a sample of new and old data instead of all available data, as well as possible instance-based weightings on sampled data.</p>
+<p>We might also consider extensions of the model that freeze the layers of the existing model (e.g. so model weights cannot change during training), then add new layers with model weights that can change, grafting on extensions to the model to handle any change in the data. Perhaps this is a variation of the retraining and the ensemble approach in the next section, and we’ll leave it for now.</p>
+<p>Nevertheless, these are the two main strategies to consider.</p>
+<p>Let’s make these approaches concrete with a worked example.</p>
+<div class="section" id="update-model-on-new-data-only">
+<h3>Update Model on New Data Only<a class="headerlink" href="#update-model-on-new-data-only" title="Permalink to this headline">¶</a></h3>
+<p>We can update the model on the new data only.</p>
+<p>One extreme version of this approach is to not use any new data and simply re-train the model on the old data. This might be the same as “do nothing” in response to the new data. At the other extreme, a model could be fit on the new data only, discarding the old data and old model.</p>
+<ul class="simple">
+<li><p>Ignore new data, do nothing.</p></li>
+<li><p>Update existing model on new data.</p></li>
+<li><p>Fit new model on new data, discard old model and data.</p></li>
+</ul>
+<p>We will focus on the middle ground in this example, but it might be interesting to test all three approaches on your problem and see what works best.</p>
+<p>First, we can define a synthetic binary classification dataset and split it into half, then use one portion as “old data” and another portion as “new data.”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># record the number of input features in the data</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># split into old and new data</span>
+<span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then define a Multilayer Perceptron model (MLP) and fit it on the old data only.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then imagine saving the model and using it for some time.</p>
+<p>Time passes, and we wish to update it on new data that has become available.</p>
+<p>This would involve using a much smaller learning rate than normal so that we do not wash away the weights learned on the old data.</p>
+<p>Note: you will need to discover a learning rate that is appropriate for your model and dataset that achieves better performance than simply fitting a new model from scratch.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># update model on new data only with a smaller learning rate</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then fit the model on the new data only with this smaller learning rate..</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on new data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tying this together, the complete example of updating a neural network model on new data only is listed below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># update neural network with new data only</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="c1"># define dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># record the number of input features in the data</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># split into old and new data</span>
+<span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># define the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># save model...</span>
+
+<span class="c1"># load model...</span>
+
+<span class="c1"># update model on new data only with a smaller learning rate</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on new data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.callbacks.History at 0x7f234ce7ccd0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s look at updating the model on new and old data.</p>
+</div>
+<div class="section" id="update-model-on-old-and-new-data">
+<h3>Update Model on Old and New Data<a class="headerlink" href="#update-model-on-old-and-new-data" title="Permalink to this headline">¶</a></h3>
+<p>We can update the model on a combination of both old and new data. An extreme version of this approach is to discard the model and simply fit a new model on all available data, new and old. A less extreme version would be to use the existing model as a starting point and update it based on the combined dataset. Again, it is a good idea to test both strategies and see what works well for your dataset. We will focus on the less extreme update strategy in this case.</p>
+<ul class="simple">
+<li><p>The synthetic dataset and model can be fit on the old dataset as before.</p></li>
+<li><p>New data comes available and we wish to update the model on a combination of both old and new data.</p></li>
+<li><p>First, we must use a much smaller learning rate in an attempt to use the current weights as a starting point for the search.</p></li>
+<li><p>We can then create a composite dataset composed of old and new data.</p></li>
+<li><p>Finally, we can update the model on this composite dataset.</p></li>
+</ul>
+<blockquote>
+<div><p>Note: you will need to discover a learning rate that is appropriate for your model and dataset that achieves better performance than simply fitting a new model from scratch.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># update neural network with both old and new data</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">vstack</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="c1"># define dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># record the number of input features in the data</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># split into old and new data</span>
+<span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># define the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># save model...</span>
+
+<span class="c1"># load model...</span>
+
+<span class="c1"># update model with a smaller learning rate</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># create a composite dataset of old and new data</span>
+<span class="n">X_both</span><span class="p">,</span> <span class="n">y_both</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">((</span><span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">)),</span> <span class="n">hstack</span><span class="p">((</span><span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span><span class="p">))</span>
+<span class="c1"># fit the model on new data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_both</span><span class="p">,</span> <span class="n">y_both</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;keras.callbacks.History at 0x7f23503988d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s look at how to use ensemble models to respond to new data.</p>
+</div>
+</div>
+<div class="section" id="ensemble-update-strategies">
+<h2>Ensemble Update Strategies<a class="headerlink" href="#ensemble-update-strategies" title="Permalink to this headline">¶</a></h2>
+<p>An ensemble is a predictive model that is composed of multiple other models.</p>
+<p>There are many different types of ensemble models, although perhaps the simplest approach is to average the predictions from multiple different models.</p>
+<p>We can use an ensemble model as a strategy when responding to changes in the underlying data or availability of new data.</p>
+<p>Mirroring the approaches in the previous section, we might consider two approaches to ensemble learning algorithms as strategies for responding to new data; they are:</p>
+<ul class="simple">
+<li><p>Ensemble of existing model and new model fit on new data only.</p></li>
+<li><p>Ensemble of existing model and new model fit on old and new data.</p></li>
+</ul>
+<p>Again, we might consider variations on these approaches, such as samples of old and new data, and more than one existing or additional models included in the ensemble.</p>
+<p>Nevertheless, these are the two main strategies to consider.</p>
+<p>Let’s make these approaches concrete with a worked example.</p>
+<div class="section" id="ensemble-model-with-model-on-new-data-only">
+<h3>Ensemble Model With Model on New Data Only<a class="headerlink" href="#ensemble-model-with-model-on-new-data-only" title="Permalink to this headline">¶</a></h3>
+<p>We can create an ensemble of the existing model and a new model fit on only the new data.</p>
+<p>The expectation is that the ensemble predictions perform better or are more stable (lower variance) than using either the old model or the new model alone. This should be checked on your dataset before adopting the ensemble.</p>
+<ul class="simple">
+<li><p>First, we can prepare the dataset and fit the old model, as we did in the previous sections.</p></li>
+<li><p>Some time passes and new data becomes available.</p></li>
+<li><p>We can then fit a new model on the new data, naturally discovering a model and configuration that works well or best on the new dataset only. In this case, we’ll simply use the same model architecture and configuration as the old model.</p></li>
+<li><p>We can then fit this new model on the new data only.</p></li>
+<li><p>Now that we have the two models, we can make predictions with each model, and calculate the average of the predictions as the “ensemble prediction.”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensemble old neural network with new model fit on new data only</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="c1"># define dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># record the number of input features in the data</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># split into old and new data</span>
+<span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># define the old model</span>
+<span class="n">old_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># save model...</span>
+
+<span class="c1"># load model...</span>
+
+<span class="c1"># define the new model</span>
+<span class="n">new_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_new</span><span class="p">,</span> <span class="n">y_new</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># make predictions with both models</span>
+<span class="n">yhat1</span> <span class="o">=</span> <span class="n">old_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="n">yhat2</span> <span class="o">=</span> <span class="n">new_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="c1"># combine predictions into single array</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">((</span><span class="n">yhat1</span><span class="p">,</span> <span class="n">yhat2</span><span class="p">))</span>
+<span class="c1"># calculate outcome as mean of predictions</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ensemble-model-with-model-on-old-and-new-data">
+<h3>Ensemble Model With Model on Old and New Data<a class="headerlink" href="#ensemble-model-with-model-on-old-and-new-data" title="Permalink to this headline">¶</a></h3>
+<p>We can create an ensemble of the existing model and a new model fit on both the old and the new data.</p>
+<p>The expectation is that the ensemble predictions perform better or are more stable (lower variance) than using either the old model or the new model alone. This should be checked on your dataset before adopting the ensemble.</p>
+<ul class="simple">
+<li><p>First, we can prepare the dataset and fit the old model, as we did in the previous sections.</p></li>
+<li><p>Some time passes and new data becomes available.</p></li>
+<li><p>We can then fit a new model on a composite of the old and new data, naturally discovering a model and configuration that works well or best on the new dataset only. In this case, we’ll simply use the same model architecture and configuration as the old model.</p></li>
+<li><p>We can create a composite dataset from the old and new data, then fit the new model on this dataset.</p></li>
+<li><p>Finally, we can use both models together to make ensemble predictions.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ensemble old neural network with new model fit on old and new data</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">vstack</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="c1"># define dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># record the number of input features in the data</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># split into old and new data</span>
+<span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># define the old model</span>
+<span class="n">old_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">old_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_old</span><span class="p">,</span> <span class="n">y_old</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># save model...</span>
+
+<span class="c1"># load model...</span>
+
+<span class="c1"># define the new model</span>
+<span class="n">new_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">n_features</span><span class="p">))</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;he_normal&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="c1"># define the optimization algorithm</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="c1"># compile the model</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">opt</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">)</span>
+<span class="c1"># create a composite dataset of old and new data</span>
+<span class="n">X_both</span><span class="p">,</span> <span class="n">y_both</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">((</span><span class="n">X_old</span><span class="p">,</span> <span class="n">X_new</span><span class="p">)),</span> <span class="n">hstack</span><span class="p">((</span><span class="n">y_old</span><span class="p">,</span> <span class="n">y_new</span><span class="p">))</span>
+<span class="c1"># fit the model on old data</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_both</span><span class="p">,</span> <span class="n">y_both</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># make predictions with both models</span>
+<span class="n">yhat1</span> <span class="o">=</span> <span class="n">old_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="n">yhat2</span> <span class="o">=</span> <span class="n">new_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
+<span class="c1"># combine predictions into single array</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">((</span><span class="n">yhat1</span><span class="p">,</span> <span class="n">yhat2</span><span class="p">))</span>
+<span class="c1"># calculate outcome as mean of predictions</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/incremental-learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T578427_Dask_Incremental_Wrapper.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Dask Incremental Wrapper</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T502860_Drift_Detection_using_River_library.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Drift Detection using River library</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

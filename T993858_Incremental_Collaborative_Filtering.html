@@ -1,0 +1,1439 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incremental Collaborative Filtering &#8212; incremental-learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Neural Memory Streaming Recommender Networks with Adversarial Training" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html" />
+    <link rel="prev" title="Kernelized Matrix Factorization on ML-1m" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">incremental-learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L521041_Incremental_Learning.html">
+   Incremental Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L194114_Concept_Drift.html">
+   Concept Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L589394_Jensen%E2%80%93Shannon_divergence.html">
+   Jensen–Shannon divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L241645_A_spectrum_of_model_freshness.html">
+   A spectrum of model freshness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L883094_Incremental_Learning_in_Computer_Vision.html">
+   Incremental Learning in Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L369117_Incremental_Learning_in_Recommender_Systems.html">
+   Incremental Learning in Recommender Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L725007_River.html">
+   River
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L595800_Lambda_Learner.html">
+   Lambda Learner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
+   Scikit warm-start
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L498804_GLMix.html">
+   GLMix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
+   IncCTR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L753817_SML.html">
+   SML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L395827_CIGC.html">
+   CIGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L958254_GraphSAIL.html">
+   GraphSAIL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L926913_NMRN.html">
+   NMRN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L766388_RKMF.html">
+   RKMF
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L967738_MarketCloud.html">
+   MarketCloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html">
+   Huawei AppGallery Candidate Selection for App Recommendation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+   GLMix in LinkedIn Job Recommendation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+   Scikit Multiflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T578427_Dask_Incremental_Wrapper.html">
+   Dask Incremental Wrapper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T613575_Warm_start_Model_Retraining.html">
+   Warm-start Model Retraining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T502860_Drift_Detection_using_River_library.html">
+   Drift Detection using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T664430_Incremental_Stochastic_Gradient_Descent.html">
+   Incremental Stochastic Gradient Descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T860884_Avalanche_Visual_Incremental_Learning.html">
+   Avalanche Visual Incremental Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html">
+   Lambda Learner for Incremental Learning using GLMix models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T007121_FlowRec.html">
+   FlowRec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html">
+   Incremental Matrix Factorization on ML-100k using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html">
+   Kernelized Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Incremental Collaborative Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html">
+   Neural Memory Streaming Recommender Networks with Adversarial Training
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T993858_Incremental_Collaborative_Filtering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T993858_Incremental_Collaborative_Filtering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T993858_Incremental_Collaborative_Filtering.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#losses">
+   Losses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wrappers">
+     Wrappers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-losses">
+     Common losses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics">
+   Metrics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recall">
+     Recall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#precision">
+     Precision
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step">
+   Step
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utils">
+   Utils
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training">
+   Training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="incremental-collaborative-filtering">
+<h1>Incremental Collaborative Filtering<a class="headerlink" href="#incremental-collaborative-filtering" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">tensor</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torch.nn.modules.loss</span> <span class="kn">import</span> <span class="n">_Loss</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">update_wrapper</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install -q watermark
+%reload_ext watermark
+%watermark -m -iv -u -t -d
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-10-25 10:31:51
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 5.4.104+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+IPython: 5.5.0
+torch  : 1.9.0+cu111
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="losses">
+<h2>Losses<a class="headerlink" href="#losses" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="wrappers">
+<h3>Wrappers<a class="headerlink" href="#wrappers" title="Permalink to this headline">¶</a></h3>
+<p>Below we define several wrappers for well known losses that are defined and implemented in the Pytorch library. The main idea is that we need to flatten our prediction before we pass them accordingly to the chosen loss function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FlatLoss</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Same as whatever `func` is, but with flattened input and target.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="n">_Loss</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">to_float</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
+                 <span class="n">is_2d</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">to_float</span> <span class="o">=</span> <span class="n">to_float</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_2d</span> <span class="o">=</span> <span class="n">is_2d</span>
+    
+        <span class="n">update_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;FlatLoss of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="si">}</span><span class="s1">&#39;</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reduction</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="s1">&#39;reduction&#39;</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="si">}</span><span class="s1"> does not have &quot;reduction&quot; attribute&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">reduction</span>
+    
+    <span class="nd">@reduction</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">reduction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reduction</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">reduction</span> <span class="o">=</span> <span class="n">reduction</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="si">}</span><span class="s1"> does not have &quot;weight&quot; attribute&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">weight</span>
+    
+    <span class="nd">@weight</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prediction</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_float</span><span class="p">:</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+            
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prediction</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_2d</span> <span class="k">else</span> <span class="n">prediction</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The FlatLoss class creates a callable that will do whatever the function that we pass would do, but with flattened input and target before the operation.</p>
+</div>
+<div class="section" id="common-losses">
+<h3>Common losses<a class="headerlink" href="#common-losses" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FlatCrossEntropyLoss</span><span class="p">(</span><span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">to_float</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">is_2d</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Same as `nn.CrossEntropyLoss`, but with flattened input and target.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">FlatLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">to_float</span><span class="o">=</span><span class="n">to_float</span><span class="p">,</span> <span class="n">is_2d</span><span class="o">=</span><span class="n">is_2d</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FlatBCELoss</span><span class="p">(</span><span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">to_float</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">is_2d</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Same as `nn.BCELoss`, but with flattened input and target.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">FlatLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">to_float</span><span class="o">=</span><span class="n">to_float</span><span class="p">,</span> <span class="n">is_2d</span><span class="o">=</span><span class="n">is_2d</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FlatMSELoss</span><span class="p">(</span><span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">to_float</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">is_2d</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Same as `nn.MSELoss`, but with flattened input and target.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">FlatLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">to_float</span><span class="o">=</span><span class="n">to_float</span><span class="p">,</span> <span class="n">is_2d</span><span class="o">=</span><span class="n">is_2d</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recall">
+<h3>Recall<a class="headerlink" href="#recall" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">recall_at_k</span><span class="p">(</span><span class="n">predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">targets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Computes `Recall@k` from the given predictions and targets sets.&quot;&quot;&quot;</span>
+    <span class="n">predictions_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">predictions</span><span class="p">[:</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">targets_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">targets_set</span> <span class="o">&amp;</span> <span class="n">predictions_set</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">targets_set</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">43</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">recall_at_k</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mf">.2</span><span class="p">,</span> <span class="s1">&#39;Recall@k should be equal to 2/10 = 0.2&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="precision">
+<h3>Precision<a class="headerlink" href="#precision" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">precision_at_k</span><span class="p">(</span><span class="n">predictions</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">targets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Computes `Precision@k` from the given predictions and targets sets.&quot;&quot;&quot;</span>
+    <span class="n">predictions_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">predictions</span><span class="p">[:</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">targets_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">targets_set</span> <span class="o">&amp;</span> <span class="n">predictions_set</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">predictions_set</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">43</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">precision_at_k</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mf">.4</span><span class="p">,</span> <span class="s1">&#39;Recall@k should be equal to 2/5 = 0.4&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<p>Common neural network architectures for Collaborative Filtering.</p>
+<p>This architecture is the simplest one to implement Collaborative Filtering. It only defines the embedding matrices for users and items and the final rating is computed by the dot product of the corresponding rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SimpleCF</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    n_users (int): The number of unique users</span>
+<span class="sd">    n_items (int): The number of unique items</span>
+<span class="sd">    factors (int): The dimension of the embedding space</span>
+<span class="sd">    user_embeddings (torch.tensor): Pre-trained weights for the user embedding matrix</span>
+<span class="sd">    freeze_users (bool): True if we want to keep the user weights as is (i.e. non-trainable)</span>
+<span class="sd">    item_embeddings (torch.tensor): Pre-trained weights for the item embedding matrix</span>
+<span class="sd">    freeze_item (bool): True if we want to keep the item weights as is (i.e. non-trainable)</span>
+<span class="sd">    init (torch.nn.init): The initialization method of the embedding matrices - default: torch.nn.init.normal_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_users</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_items</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">factors</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span> 
+                 <span class="n">user_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">freeze_users</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">item_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">freeze_items</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">init</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">,</span> <span class="n">binary</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">binary</span> <span class="o">=</span> <span class="n">binary</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_embedding</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> 
+                                                      <span class="n">user_embeddings</span><span class="p">,</span> <span class="n">freeze_users</span><span class="p">,</span> 
+                                                      <span class="n">init</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_embedding</span><span class="p">(</span><span class="n">n_items</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> 
+                                                      <span class="n">item_embeddings</span><span class="p">,</span> <span class="n">freeze_items</span><span class="p">,</span>
+                                                      <span class="n">init</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
+        <span class="n">user_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embeddings</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="n">user_embedding</span> <span class="o">=</span> <span class="n">user_embedding</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">item_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">item_embedding</span> <span class="o">=</span> <span class="n">item_embedding</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">rating</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">user_embedding</span><span class="p">,</span> <span class="n">item_embedding</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rating</span>
+    
+    <span class="k">def</span> <span class="nf">_create_embedding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">factors</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">freeze</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_items</span><span class="p">,</span> <span class="n">factors</span><span class="p">)</span>
+        <span class="n">init</span><span class="p">(</span><span class="n">embedding</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">embedding</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">({</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">weights</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">freeze</span><span class="p">:</span>
+            <span class="n">embedding</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+        
+        <span class="k">return</span> <span class="n">embedding</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the model with 100 users, 50 items and a 16-dimensional embedding space</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleCF</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># predict the rating that user 3 would give to item 33</span>
+<span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">]),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">32</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.4973]]], grad_fn=&lt;SigmoidBackward&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step">
+<h2>Step<a class="headerlink" href="#step" title="Permalink to this headline">¶</a></h2>
+<p>Incremental Collaborative Filtering algorithms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StepBase</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines the interface that all step models here expose.</span>
+<span class="sd">    This class defines the interface that every Step module should implement.</span>
+<span class="sd">    Namely, each class should implement five methods:</span>
+
+<span class="sd">        batch_fit: To support batch training</span>
+<span class="sd">        step: To support incremental learning</span>
+<span class="sd">        predict: To offer recommendations</span>
+<span class="sd">        save: To save the model parameters</span>
+<span class="sd">        load: To load the model parameters</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">batch_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Trains the model on a batch of user-item interactions.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> 
+             <span class="n">rating</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">preference</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Trains the model incrementally.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Recommends the top-k items to a specific user.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Saves the model parameters to the given path.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads the model parameters from a given path.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Step</span><span class="p">(</span><span class="n">StepBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Incremental and batch training of recommender systems.</span>
+<span class="sd">    The step class implements the basic Incremental Collaborative Filtering recommender system.</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        model (torch.nn.Module): The neural network architecture</span>
+<span class="sd">        objective (Callable): The objective function</span>
+<span class="sd">        optimizer (Callable): The method used to optimize the objective function. Usually a torch.optim loss function</span>
+<span class="sd">        conf_func (Callable): A method that converts implicit ratings to confidence scores</span>
+<span class="sd">        device (str): Either cpu or gpu</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">objective</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                 <span class="n">optimizer</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">conf_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="n">objective</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conf_func</span> <span class="o">=</span> <span class="n">conf_func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span>
+
+        <span class="c1"># check if the user has provided user and item embeddings</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">user_embeddings</span><span class="p">,</span> <span class="s1">&#39;User embedding matrix could not be found.&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">item_embeddings</span><span class="p">,</span> <span class="s1">&#39;Item embedding matrix could not be found.&#39;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">user_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">user_embeddings</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">item_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">item_embeddings</span>
+
+    <span class="k">def</span> <span class="nf">batch_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_loader</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Trains the model on a batch of user-item interactions.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="p">))</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">preferences</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_loader</span><span class="p">):</span>
+                    <span class="n">users</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">items</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">rtngs</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="n">prefs</span> <span class="o">=</span> <span class="n">preferences</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    
+                    <span class="n">preds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+                    <span class="n">confs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_func</span><span class="p">(</span><span class="n">rtngs</span><span class="p">)</span>
+                    
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">confs</span>
+                    
+                    <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">prefs</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                    
+                    <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+                    
+                    <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> 
+             <span class="n">rating</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">preference</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Trains the model incrementally.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        
+        <span class="n">user</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">rtng</span> <span class="o">=</span> <span class="n">rating</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">pref</span> <span class="o">=</span> <span class="n">preference</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        
+        <span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conf_func</span><span class="p">(</span><span class="n">rtng</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">conf</span>
+        
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">pref</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Recommends the top-k items to a specific user.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">user_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embeddings</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">item_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embeddings</span><span class="o">.</span><span class="n">weight</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">item_embeddings</span> <span class="o">@</span> <span class="n">user_embedding</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">score</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="n">k</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="n">predictions</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Saves the model parameters to the given path.&quot;&quot;&quot;</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Loads the model parameters from a given path.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># export</span>
+<span class="k">def</span> <span class="nf">moving_avg</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Computes the moving average of a list over a sliding window.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        inputs (list): A list of integers or floats</span>
+<span class="sd">        w (int): The sliding window that will be used to compute moving averages</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cumsum</span><span class="p">,</span> <span class="n">moving_avgs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">cumsum</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cumsum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">w</span><span class="p">:</span>
+            <span class="n">moving_avg</span> <span class="o">=</span> <span class="p">(</span><span class="n">cumsum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">cumsum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">w</span><span class="p">])</span> <span class="o">/</span> <span class="n">w</span>
+            <span class="n">moving_avgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moving_avg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">moving_avgs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">moving_avg</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<p>We will use the popular movielens dataset. First we will download the data and load it into a pandas DataFrame.</p>
+<p>To avoid creating a user and movie vocabularies we turn each user and movie to a categorical feature and use the pandas convenient cat attribute to get the codes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget -q --show-progress http://files.grouplens.org/datasets/movielens/ml-1m.zip
+!unzip ml-1m.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ml-1m.zip           100%[===================&gt;]   5.64M  13.5MB/s    in 0.4s    
+Archive:  ml-1m.zip
+   creating: ml-1m/
+  inflating: ml-1m/movies.dat        
+  inflating: ml-1m/ratings.dat       
+  inflating: ml-1m/README            
+  inflating: ml-1m/users.dat         
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the data</span>
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;movie_id&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]</span>
+<span class="n">ratings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ml-1m/ratings.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;::&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">col_names</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+
+<span class="c1"># transform users and movies to categorical features</span>
+<span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+
+<span class="c1"># use the codes to avoid creating separate vocabularies</span>
+<span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;user_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;movie_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;movie_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">ratings_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>movie_id</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>user_code</th>
+      <th>movie_code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1193</td>
+      <td>5</td>
+      <td>978300760</td>
+      <td>0</td>
+      <td>1104</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>661</td>
+      <td>3</td>
+      <td>978302109</td>
+      <td>0</td>
+      <td>639</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>914</td>
+      <td>3</td>
+      <td>978301968</td>
+      <td>0</td>
+      <td>853</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>3408</td>
+      <td>4</td>
+      <td>978300275</td>
+      <td>0</td>
+      <td>3177</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2355</td>
+      <td>5</td>
+      <td>978824291</td>
+      <td>0</td>
+      <td>2162</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Using the codes we can see how many users and movies are in the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_users</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;user_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">n_movies</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="p">[</span><span class="s1">&#39;movie_code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">n_users</span><span class="si">}</span><span class="s1"> unique users and </span><span class="si">{</span><span class="n">n_movies</span><span class="si">}</span><span class="s1"> unique movies in the movielens dataset.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 6040 unique users and 3706 unique movies in the movielens dataset.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_df</span> <span class="o">=</span> <span class="n">ratings_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;timestamp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Step model supports only positive feedback. Thus, we will consider a rating of 5 as positive feedback and discard any other. We want to identify likes with 1 and dislikes with 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># more than 4 -&gt; 1, less than 5 -&gt; 0</span>
+<span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;preference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># keep only ones and discard the others</span>
+<span class="n">data_df_cleaned</span> <span class="o">=</span> <span class="n">data_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;preference&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">data_df_cleaned</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>movie_id</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>user_code</th>
+      <th>movie_code</th>
+      <th>preference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>999873</th>
+      <td>6040</td>
+      <td>593</td>
+      <td>5</td>
+      <td>956703954</td>
+      <td>6039</td>
+      <td>579</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1000192</th>
+      <td>6040</td>
+      <td>2019</td>
+      <td>5</td>
+      <td>956703977</td>
+      <td>6039</td>
+      <td>1839</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>999920</th>
+      <td>6040</td>
+      <td>213</td>
+      <td>5</td>
+      <td>956704056</td>
+      <td>6039</td>
+      <td>207</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>999967</th>
+      <td>6040</td>
+      <td>3111</td>
+      <td>5</td>
+      <td>956704056</td>
+      <td>6039</td>
+      <td>2895</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>999971</th>
+      <td>6040</td>
+      <td>2503</td>
+      <td>5</td>
+      <td>956704191</td>
+      <td>6039</td>
+      <td>2309</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>Following, let us initialize our model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">SimpleCF</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">n_movies</span><span class="p">,</span> <span class="n">factors</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">pred</span><span class="p">,</span> <span class="n">targ</span><span class="p">:</span> <span class="n">targ</span> <span class="o">-</span> <span class="n">pred</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.06</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Step</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">objective</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, let us get 20% of the data to fit the model for bootstrapping and create the Pytorch Dataset that we will use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pct</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_df_cleaned</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">.2</span><span class="p">)</span>
+<span class="n">bootstrapping_data</span> <span class="o">=</span> <span class="n">data_df_cleaned</span><span class="p">[:</span><span class="n">pct</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will create a dataset from our Dataframe. We extract four elements: The user code, The movie code, The rating, and The preference.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user_code&#39;</span><span class="p">,</span> <span class="s1">&#39;movie_code&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;preference&#39;</span><span class="p">]</span>
+
+<span class="n">data_set</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">bootstrapping_data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> 
+                         <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">bootstrapping_data</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create the Pytorch DataLoader that we will use. Batch size should always be 1 for online training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">data_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us now use the batch_fit() method of the Step trainer to bootstrap our model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">batch_fit</span><span class="p">(</span><span class="n">data_loader</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 89/89 [00:01&lt;00:00, 73.83it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, to simulate streaming we get the remaining data and create a different data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_df_step</span> <span class="o">=</span> <span class="n">data_df_cleaned</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">bootstrapping_data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">data_df_step</span> <span class="o">=</span> <span class="n">data_df_step</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data_df_step</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>movie_id</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>user_code</th>
+      <th>movie_code</th>
+      <th>preference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4708</td>
+      <td>3019</td>
+      <td>5</td>
+      <td>963519342</td>
+      <td>4707</td>
+      <td>2806</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4708</td>
+      <td>2918</td>
+      <td>5</td>
+      <td>963519342</td>
+      <td>4707</td>
+      <td>2710</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4708</td>
+      <td>1240</td>
+      <td>5</td>
+      <td>963519448</td>
+      <td>4707</td>
+      <td>1148</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4708</td>
+      <td>1285</td>
+      <td>5</td>
+      <td>963519448</td>
+      <td>4707</td>
+      <td>1193</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4717</td>
+      <td>1262</td>
+      <td>5</td>
+      <td>963519507</td>
+      <td>4716</td>
+      <td>1170</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the DataLoader</span>
+<span class="n">stream_data_set</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_df_step</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> 
+                                <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data_df_step</span><span class="p">[</span><span class="n">target</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">stream_data_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">stream_data_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># we keep only the top 10 recommendations</span>
+<span class="n">recalls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">known_users</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">stream_data_loader</span><span class="p">))</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">preferences</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stream_data_loader</span><span class="p">):</span>
+        <span class="n">itr</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="n">user</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">rtng</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">pref</span> <span class="o">=</span> <span class="n">preferences</span>
+        
+        <span class="k">if</span> <span class="n">user</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="ow">in</span> <span class="n">known_users</span><span class="p">:</span>
+            <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+            <span class="n">recall</span> <span class="o">=</span> <span class="n">recall_at_k</span><span class="p">(</span><span class="n">predictions</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">item</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">k</span><span class="p">)</span>
+            <span class="n">recalls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rtng</span><span class="p">,</span> <span class="n">pref</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rtng</span><span class="p">,</span> <span class="n">pref</span><span class="p">)</span>
+            
+        <span class="n">known_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 181048/181048 [23:05&lt;00:00, 130.70it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Last but not least, we visualize the results of the recall&#64;10 metric, using a moving average window of 5k elements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">avgs</span> <span class="o">=</span> <span class="n">moving_avg</span><span class="p">(</span><span class="n">recalls</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Recall@10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Metric&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">avgs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T993858_Incremental_Collaborative_Filtering_55_0.png" src="_images/T993858_Incremental_Collaborative_Filtering_55_0.png" />
+</div>
+</div>
+<p>Finally, save the model’s weights.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;positive_step.pt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/incremental-learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Kernelized Matrix Factorization on ML-1m</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Neural Memory Streaming Recommender Networks with Adversarial Training</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

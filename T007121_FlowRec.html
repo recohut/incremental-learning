@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowRec &#8212; incremental-learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Incremental Matrix Factorization on ML-100k using River library" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html" />
+    <link rel="prev" title="Lambda Learner for Incremental Learning using GLMix models" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">incremental-learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L521041_Incremental_Learning.html">
+   Incremental Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L194114_Concept_Drift.html">
+   Concept Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L589394_Jensen%E2%80%93Shannon_divergence.html">
+   Jensen–Shannon divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L241645_A_spectrum_of_model_freshness.html">
+   A spectrum of model freshness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L883094_Incremental_Learning_in_Computer_Vision.html">
+   Incremental Learning in Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L369117_Incremental_Learning_in_Recommender_Systems.html">
+   Incremental Learning in Recommender Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L725007_River.html">
+   River
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L595800_Lambda_Learner.html">
+   Lambda Learner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
+   Scikit warm-start
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L498804_GLMix.html">
+   GLMix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
+   IncCTR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L753817_SML.html">
+   SML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L395827_CIGC.html">
+   CIGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L958254_GraphSAIL.html">
+   GraphSAIL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L926913_NMRN.html">
+   NMRN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L766388_RKMF.html">
+   RKMF
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L967738_MarketCloud.html">
+   MarketCloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html">
+   Huawei AppGallery Candidate Selection for App Recommendation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+   GLMix in LinkedIn Job Recommendation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+   Scikit Multiflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T578427_Dask_Incremental_Wrapper.html">
+   Dask Incremental Wrapper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T613575_Warm_start_Model_Retraining.html">
+   Warm-start Model Retraining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T502860_Drift_Detection_using_River_library.html">
+   Drift Detection using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T664430_Incremental_Stochastic_Gradient_Descent.html">
+   Incremental Stochastic Gradient Descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T860884_Avalanche_Visual_Incremental_Learning.html">
+   Avalanche Visual Incremental Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html">
+   Lambda Learner for Incremental Learning using GLMix models
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   FlowRec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html">
+   Incremental Matrix Factorization on ML-100k using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html">
+   Kernelized Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T993858_Incremental_Collaborative_Filtering.html">
+   Incremental Collaborative Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html">
+   Neural Memory Streaming Recommender Networks with Adversarial Training
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T007121_FlowRec.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T007121_FlowRec.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T007121_FlowRec.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="flowrec">
+<h1>FlowRec<a class="headerlink" href="#flowrec" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install scikit-multiflow
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget -q --show-progress https://github.com/paraschakis/flowrec/raw/master/data/trivago_1M100K.csv
+# !wget -q --show-progress https://github.com/paraschakis/flowrec/raw/master/data/yoochoose_clicks_1M100K.csv
+# !wget -q --show-progress https://github.com/paraschakis/flowrec/raw/master/data/clef_1M100K.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>trivago_1M100K.csv. 100%[===================&gt;]  26.49M   130MB/s    in 0.2s    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># !git clone https://github.com/paraschakis/flowrec.git</span>
+<span class="c1"># %cd flowrec</span>
+<span class="c1"># import sys</span>
+<span class="c1"># sys.path.append(&#39;.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skmultiflow.data</span> <span class="kn">import</span> <span class="n">FileStream</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">evaluation.evaluate_prequential</span> <span class="kn">import</span> <span class="n">EvaluatePrequential</span>
+<span class="kn">from</span> <span class="nn">recommendation.random</span> <span class="kn">import</span> <span class="n">RandomClassifier</span>
+<span class="kn">from</span> <span class="nn">recommendation.popular</span> <span class="kn">import</span> <span class="n">PopularClassifier</span>
+<span class="kn">from</span> <span class="nn">recommendation.co_events</span> <span class="kn">import</span> <span class="n">CoEventsClassifier</span>
+<span class="kn">from</span> <span class="nn">recommendation.seq_events</span> <span class="kn">import</span> <span class="n">SeqEventsClassifier</span>
+<span class="kn">from</span> <span class="nn">recommendation.ht_wrapper</span> <span class="kn">import</span> <span class="n">HTWrapper</span>
+<span class="kn">from</span> <span class="nn">recommendation.beer</span> <span class="kn">import</span> <span class="n">BeerEnsemble</span>
+<span class="kn">from</span> <span class="nn">recommendation.sknn</span> <span class="kn">import</span> <span class="n">SKNNClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create stream</span>
+<span class="n">stream</span> <span class="o">=</span> <span class="n">FileStream</span><span class="p">(</span><span class="s2">&quot;trivago_1M100K.csv&quot;</span><span class="p">)</span>
+<span class="n">stream</span><span class="o">.</span><span class="n">prepare_for_use</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate recommenders</span>
+<span class="n">random</span> <span class="o">=</span> <span class="n">RandomClassifier</span><span class="p">()</span>
+<span class="n">ht</span> <span class="o">=</span> <span class="n">HTWrapper</span><span class="p">(</span><span class="n">weight_mc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weight_inv</span><span class="o">=</span><span class="mf">0.90</span><span class="p">)</span>
+<span class="n">sknn</span> <span class="o">=</span> <span class="n">SKNNClassifier</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">sample_recent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">similarity</span><span class="o">=</span><span class="s1">&#39;cosine&#39;</span><span class="p">,</span> <span class="n">sliding_window</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">popular</span> <span class="o">=</span> <span class="n">PopularClassifier</span><span class="p">(</span><span class="n">sliding_window</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">CoEventsClassifier</span><span class="p">(</span><span class="n">sliding_window</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sr</span> <span class="o">=</span> <span class="n">SeqEventsClassifier</span><span class="p">(</span><span class="n">sliding_window</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">mc</span> <span class="o">=</span> <span class="n">SeqEventsClassifier</span><span class="p">(</span><span class="n">steps_back</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sliding_window</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">beer</span> <span class="o">=</span> <span class="n">BeerEnsemble</span><span class="p">(</span><span class="n">cf_components</span><span class="o">=</span><span class="p">[</span><span class="n">ar</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">mc</span><span class="p">,</span> <span class="n">popular</span><span class="p">,</span> <span class="n">sknn</span><span class="p">])</span>
+
+<span class="n">evaluator</span> <span class="o">=</span> <span class="n">EvaluatePrequential</span><span class="p">(</span><span class="n">session_column_index</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="n">time_column_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                <span class="n">rec_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                <span class="n">allow_reminders</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">allow_repeated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">show_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                <span class="n">n_wait</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                <span class="n">n_keep</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+                                <span class="n">n_skip</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                                <span class="n">pretrain_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="n">max_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="s1">&#39;mrr&#39;</span><span class="p">,</span> <span class="s1">&#39;running_time&#39;</span><span class="p">])</span>
+
+<span class="c1"># Run prequential evaluation</span>
+<span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">[</span><span class="n">ar</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">mc</span><span class="p">,</span> <span class="n">popular</span><span class="p">,</span> <span class="n">random</span><span class="p">,</span> <span class="n">sknn</span><span class="p">,</span> <span class="n">beer</span><span class="p">,</span> <span class="n">ht</span><span class="p">],</span>
+                   <span class="n">model_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;AR&#39;</span><span class="p">,</span> <span class="s1">&#39;SR&#39;</span><span class="p">,</span> <span class="s1">&#39;MC&#39;</span><span class="p">,</span> <span class="s1">&#39;POP&#39;</span><span class="p">,</span> <span class="s1">&#39;RAND&#39;</span><span class="p">,</span> <span class="s1">&#39;S-KNN&#39;</span><span class="p">,</span> <span class="s1">&#39;BEER[TS]&#39;</span><span class="p">,</span> <span class="s1">&#39;HT&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prequential Evaluation
+Evaluating 1 target(s).
+Evaluating...
+ #################### [100%] [551.30s]
+Processed samples: 10000
+Mean performance:
+AR - Recall@10    : 0.0267
+AR - Mrr@10    : 0.0232
+AR - Training time (s)  : 0.86
+AR - Testing time  (s)  : 6.86
+AR - Total time    (s)  : 7.72
+SR - Recall@10    : 0.0075
+SR - Mrr@10    : 0.0060
+SR - Training time (s)  : 0.62
+SR - Testing time  (s)  : 5.29
+SR - Total time    (s)  : 5.91
+MC - Recall@10    : 0.0062
+MC - Mrr@10    : 0.0053
+MC - Training time (s)  : 0.52
+MC - Testing time  (s)  : 5.12
+MC - Total time    (s)  : 5.63
+POP - Recall@10    : 0.0020
+POP - Mrr@10    : 0.0006
+POP - Training time (s)  : 0.23
+POP - Testing time  (s)  : 12.01
+POP - Total time    (s)  : 12.25
+RAND - Recall@10    : 0.0000
+RAND - Mrr@10    : 0.0000
+RAND - Training time (s)  : 0.02
+RAND - Testing time  (s)  : 0.97
+RAND - Total time    (s)  : 0.99
+S-KNN - Recall@10    : 0.0127
+S-KNN - Mrr@10    : 0.0123
+S-KNN - Training time (s)  : 0.99
+S-KNN - Testing time  (s)  : 10.57
+S-KNN - Total time    (s)  : 11.56
+BEER[TS] - Recall@10    : 0.0280
+BEER[TS] - Mrr@10    : 0.0232
+BEER[TS] - Training time (s)  : 2.80
+BEER[TS] - Testing time  (s)  : 284.61
+BEER[TS] - Total time    (s)  : 287.41
+HT - Recall@10    : 0.0293
+HT - Mrr@10    : 0.0236
+HT - Training time (s)  : 1.33
+HT - Testing time  (s)  : 40.30
+HT - Total time    (s)  : 41.63
+training time window: 500
+number of sessions: 5566
+number of evaluations: 3069
+avg. session size: 1.80
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CoEventsClassifier(sliding_window=False, target_event_type=None),
+ SeqEventsClassifier(sliding_window=False, source_event_type=None,
+                     steps_back=inf, target_event_type=None),
+ SeqEventsClassifier(sliding_window=False, source_event_type=None, steps_back=1,
+                     target_event_type=None),
+ PopularClassifier(event_type=None, sliding_window=True),
+ RandomClassifier(),
+ SKNNClassifier(k=100, sample_recent=True, sample_size=1000, similarity=&#39;cosine&#39;,
+                sliding_window=True),
+ BeerEnsemble(attr_file=None, boundaries=[],
+              cf_components=[CoEventsClassifier(sliding_window=False,
+                                                target_event_type=None),
+                             SeqEventsClassifier(sliding_window=False,
+                                                 source_event_type=None,
+                                                 steps_back=inf,
+                                                 target_event_type=None),
+                             SeqEventsClassifier(sliding_window=False,
+                                                 source_event_type=None,
+                                                 steps_back=1,
+                                                 target_event_type=None),
+                             PopularClassifier(event_type=None,
+                                               sliding_window=True),
+                             SKNNClassifier(k=100, sample_recent=True,
+                                            sample_size=1000,
+                                            similarity=&#39;cosine&#39;,
+                                            sliding_window=True)],
+              verbose=False),
+ HTWrapper(estimator=None, max_session_size=20, weight_inv=None, weight_mc=None)]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/incremental-learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Lambda Learner for Incremental Learning using GLMix models</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Incremental Matrix Factorization on ML-100k using River library</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

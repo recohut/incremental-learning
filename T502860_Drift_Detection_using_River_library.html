@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drift Detection using River library &#8212; incremental-learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Incremental Stochastic Gradient Descent" href="T664430_Incremental_Stochastic_Gradient_Descent.html" />
+    <link rel="prev" title="Warm-start Model Retraining" href="T613575_Warm_start_Model_Retraining.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">incremental-learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L521041_Incremental_Learning.html">
+   Incremental Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L194114_Concept_Drift.html">
+   Concept Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L589394_Jensen%E2%80%93Shannon_divergence.html">
+   Jensen–Shannon divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L241645_A_spectrum_of_model_freshness.html">
+   A spectrum of model freshness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L883094_Incremental_Learning_in_Computer_Vision.html">
+   Incremental Learning in Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L369117_Incremental_Learning_in_Recommender_Systems.html">
+   Incremental Learning in Recommender Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L725007_River.html">
+   River
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L595800_Lambda_Learner.html">
+   Lambda Learner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
+   Scikit warm-start
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L498804_GLMix.html">
+   GLMix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
+   IncCTR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L753817_SML.html">
+   SML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L395827_CIGC.html">
+   CIGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L958254_GraphSAIL.html">
+   GraphSAIL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L926913_NMRN.html">
+   NMRN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L766388_RKMF.html">
+   RKMF
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L967738_MarketCloud.html">
+   MarketCloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html">
+   Huawei AppGallery Candidate Selection for App Recommendation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+   GLMix in LinkedIn Job Recommendation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+   Scikit Multiflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T578427_Dask_Incremental_Wrapper.html">
+   Dask Incremental Wrapper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T613575_Warm_start_Model_Retraining.html">
+   Warm-start Model Retraining
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Drift Detection using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T664430_Incremental_Stochastic_Gradient_Descent.html">
+   Incremental Stochastic Gradient Descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T860884_Avalanche_Visual_Incremental_Learning.html">
+   Avalanche Visual Incremental Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.html">
+   Lambda Learner for Incremental Learning using GLMix models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T007121_FlowRec.html">
+   FlowRec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html">
+   Incremental Matrix Factorization on ML-100k using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html">
+   Kernelized Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T993858_Incremental_Collaborative_Filtering.html">
+   Incremental Collaborative Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html">
+   Neural Memory Streaming Recommender Networks with Adversarial Training
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T502860_Drift_Detection_using_River_library.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T502860_Drift_Detection_using_River_library.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T502860_Drift_Detection_using_River_library.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-of-drift-on-learning">
+   Impact of drift on learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detecting-concept-drift">
+   Detecting concept drift
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#synthetic-data-generation">
+   Synthetic data generation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#drift-detection-test">
+   Drift detection test
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="drift-detection-using-river-library">
+<h1>Drift Detection using River library<a class="headerlink" href="#drift-detection-using-river-library" title="Permalink to this headline">¶</a></h1>
+<p>In the context of data streams, it is assumed that data can change over time. The change in the relationship between the data (features) and the target to learn is known as <strong>Concept Drift</strong>. As examples we can mention, the electricity demand across the year, the stock market, and the likelihood of a new movie to be successful. Let’s consider the movie example: Two movies can have similar features such as popular actors/directors, storyline, production budget, marketing campaigns, etc. yet it is not certain that both will be similarly successful. What the target audience <em>considers</em> worth watching (and their money) is constantly changing and production companies must adapt accordingly to avoid “box office flops”.</p>
+<div class="section" id="impact-of-drift-on-learning">
+<h2>Impact of drift on learning<a class="headerlink" href="#impact-of-drift-on-learning" title="Permalink to this headline">¶</a></h2>
+<p>Concept drift can have a significant impact on predictive performance if not handled properly. Most batch learning models will fail in the presence of concept drift as they are essentially trained on different data. On the other hand, stream learning methods continuously update themselves and adapt to new concepts. Furthermore, drift-aware methods use change detection methods (a.k.a. drift detectors) to trigger <em>mitigation mechanisms</em> if a change in performance is detected.</p>
+</div>
+<div class="section" id="detecting-concept-drift">
+<h2>Detecting concept drift<a class="headerlink" href="#detecting-concept-drift" title="Permalink to this headline">¶</a></h2>
+<p>Multiple drift detection methods have been proposed. The goal of a drift detector is to signal an alarm in the presence of drift. A good drift detector maximizes the number of true positives while keeping the number of false positives to a minimum. It must also be resource-wise efficient to work in the context of infinite data streams.</p>
+<p>For this example, we will generate a synthetic data stream by concatenating 3 distributions of 1000 samples each:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(dist_a\)</span>: <span class="math notranslate nohighlight">\(\mu=0.8\)</span>, <span class="math notranslate nohighlight">\(\sigma=0.05\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dist_b\)</span>: <span class="math notranslate nohighlight">\(\mu=0.4\)</span>, <span class="math notranslate nohighlight">\(\sigma=0.02\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dist_c\)</span>: <span class="math notranslate nohighlight">\(\mu=0.6\)</span>, <span class="math notranslate nohighlight">\(\sigma=0.1\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install river
+!pip install -U numpy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">gridspec</span>
+<span class="kn">from</span> <span class="nn">river</span> <span class="kn">import</span> <span class="n">drift</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install -q watermark
+%reload_ext watermark
+%watermark -m -iv -u -t -d
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Last updated: 2021-07-26 14:12:00
+
+Compiler    : GCC 7.5.0
+OS          : Linux
+Release     : 5.4.104+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+
+river     : 0.7.1
+numpy     : 1.21.1
+matplotlib: 3.2.2
+IPython   : 5.5.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="synthetic-data-generation">
+<h2>Synthetic data generation<a class="headerlink" href="#synthetic-data-generation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate data for 3 distributions</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dist_a</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">dist_b</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">dist_c</span> <span class="o">=</span> <span class="n">random_state</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Concatenate data to simulate a data stream with 2 drifts</span>
+<span class="n">stream</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">dist_a</span><span class="p">,</span> <span class="n">dist_b</span><span class="p">,</span> <span class="n">dist_c</span><span class="p">))</span>
+
+<span class="c1"># Auxiliary function to plot the data</span>
+<span class="k">def</span> <span class="nf">plot_data</span><span class="p">(</span><span class="n">dist_a</span><span class="p">,</span> <span class="n">dist_b</span><span class="p">,</span> <span class="n">dist_c</span><span class="p">,</span> <span class="n">drifts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stream&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_a</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$dist_a$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_b</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$dist_b$&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$dist_c$&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">drifts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">drift_detected</span> <span class="ow">in</span> <span class="n">drifts</span><span class="p">:</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">drift_detected</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_data</span><span class="p">(</span><span class="n">dist_a</span><span class="p">,</span> <span class="n">dist_b</span><span class="p">,</span> <span class="n">dist_c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/T502860_Drift_Detection_using_River_library_7_0.png" src="_images/T502860_Drift_Detection_using_River_library_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="drift-detection-test">
+<h2>Drift detection test<a class="headerlink" href="#drift-detection-test" title="Permalink to this headline">¶</a></h2>
+<p>We will use the ADaptive WINdowing (<code class="docutils literal notranslate"><span class="pre">ADWIN</span></code>) drift detection method. Remember that the goal is to indicate that drift has occurred after samples <strong>1000</strong> and <strong>2000</strong> in the synthetic data stream.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drift_detector</span> <span class="o">=</span> <span class="n">drift</span><span class="o">.</span><span class="n">ADWIN</span><span class="p">()</span>
+<span class="n">drifts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+    <span class="n">drift_detector</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>   <span class="c1"># Data is processed one sample at a time</span>
+    <span class="k">if</span> <span class="n">drift_detector</span><span class="o">.</span><span class="n">change_detected</span><span class="p">:</span>
+        <span class="c1"># The drift detector indicates after each sample if there is a drift in the data</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Change detected at index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">drifts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">drift_detector</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>   <span class="c1"># As a best practice, we reset the detector</span>
+
+<span class="n">plot_data</span><span class="p">(</span><span class="n">dist_a</span><span class="p">,</span> <span class="n">dist_b</span><span class="p">,</span> <span class="n">dist_c</span><span class="p">,</span> <span class="n">drifts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Change detected at index 1055
+Change detected at index 2079
+</pre></div>
+</div>
+<img alt="_images/T502860_Drift_Detection_using_River_library_9_1.png" src="_images/T502860_Drift_Detection_using_River_library_9_1.png" />
+</div>
+</div>
+<p>We see that <code class="docutils literal notranslate"><span class="pre">ADWIN</span></code> successfully indicates the presence of drift (red vertical lines) close to the begining of a new data distribution.</p>
+<hr class="docutils" />
+<p>We conclude this example with some remarks regarding concept drift detectors and their usage:</p>
+<ul class="simple">
+<li><p>In practice, drift detectors provide stream learning methods with robustness against concept drift. Drift detectors monitor the model usually through a performance metric.</p></li>
+<li><p>Drift detectors work on univariate data. This is why they are used to monitor a model’s performance and not the data itself. Remember that concept drift is defined as a change in the relationship between data and the target to learn (in supervised learning).</p></li>
+<li><p>Drift detectors define their expectations regarding input data. It is important to know these expectations to feed a given drift detector with the correct data.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/incremental-learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T613575_Warm_start_Model_Retraining.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Warm-start Model Retraining</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T664430_Incremental_Stochastic_Gradient_Descent.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Incremental Stochastic Gradient Descent</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

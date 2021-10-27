@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lambda Learner for Incremental Learning using GLMix models &#8212; incremental-learning</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FlowRec" href="T007121_FlowRec.html" />
+    <link rel="prev" title="Avalanche Visual Incremental Learning" href="T860884_Avalanche_Visual_Incremental_Learning.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">incremental-learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L521041_Incremental_Learning.html">
+   Incremental Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Concepts
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L194114_Concept_Drift.html">
+   Concept Drift
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L589394_Jensen%E2%80%93Shannon_divergence.html">
+   Jensen–Shannon divergence
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L241645_A_spectrum_of_model_freshness.html">
+   A spectrum of model freshness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L883094_Incremental_Learning_in_Computer_Vision.html">
+   Incremental Learning in Computer Vision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L369117_Incremental_Learning_in_Recommender_Systems.html">
+   Incremental Learning in Recommender Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L725007_River.html">
+   River
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L595800_Lambda_Learner.html">
+   Lambda Learner
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L305905_Scikit_warm_start.html">
+   Scikit warm-start
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L498804_GLMix.html">
+   GLMix
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L832818_IncCTR.html">
+   IncCTR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L753817_SML.html">
+   SML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L395827_CIGC.html">
+   CIGC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L958254_GraphSAIL.html">
+   GraphSAIL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L926913_NMRN.html">
+   NMRN
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L766388_RKMF.html">
+   RKMF
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L967738_MarketCloud.html">
+   MarketCloud
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L593489_Huawei_AppGallery_Candidate_Selection_for_App_Recommendation.html">
+   Huawei AppGallery Candidate Selection for App Recommendation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="L576956_GLMix_in_LinkedIn_Job_Recommendation.html">
+   GLMix in LinkedIn Job Recommendation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063084_Scikit_Multiflow.html">
+   Scikit Multiflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T578427_Dask_Incremental_Wrapper.html">
+   Dask Incremental Wrapper
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T613575_Warm_start_Model_Retraining.html">
+   Warm-start Model Retraining
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T502860_Drift_Detection_using_River_library.html">
+   Drift Detection using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T664430_Incremental_Stochastic_Gradient_Descent.html">
+   Incremental Stochastic Gradient Descent
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T860884_Avalanche_Visual_Incremental_Learning.html">
+   Avalanche Visual Incremental Learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lambda Learner for Incremental Learning using GLMix models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T007121_FlowRec.html">
+   FlowRec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T012987_Incremental_Matrix_Factorization_on_ML_100k_using_River_library.html">
+   Incremental Matrix Factorization on ML-100k using River library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T406689_Kernelized_Matrix_Factorization_on_ML_1m.html">
+   Kernelized Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T993858_Incremental_Collaborative_Filtering.html">
+   Incremental Collaborative Filtering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T063788_Neural_Memory_Streaming_Recommender_Networks_with_Adversarial_Training.html">
+   Neural Memory Streaming Recommender Networks with Adversarial Training
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/incremental-learning/main?urlpath=tree/docs/T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/incremental-learning/blob/main/docs/T392297_Lambda_Learner_for_Incremental_Learning_using_GLMix_models.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utils">
+   Utils
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linear-scorer">
+   Linear Scorer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trainers">
+   Trainers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-representations">
+   Data Representations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unittest">
+   UnitTest
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lambda-learner-for-incremental-learning-using-glmix-models">
+<h1>Lambda Learner for Incremental Learning using GLMix models<a class="headerlink" href="#lambda-learner-for-incremental-learning-using-glmix-models" title="Permalink to this headline">¶</a></h1>
+<p><em><strong>A framework for incremental learning for personalization at scale.</strong></em></p>
+<p>Lambda Learner is a framework to incrementally train the memorization part of the model as a booster over the generalization part. We incrementally update the memorization model between full batch offline updates of the generalization model to balance training performance against model stability.</p>
+<p>The key concept is to prepare mini-batches of data from an incoming stream of logged data to train an incremental update to the memorization model. We approximate the loss function on previously observed data by a local quadratic approximation around the previous optimal value and combine it with the loss function on the most recent mini-batch. This allows us to incrementally update the model without relying on all historical data yet do better than just relying on the new incoming data. This results in a regularized learning problem with a weighted penalty. In the Bayesian interpretation, the local quadratic approximation is equivalent to using the posterior distribution of the previous model as prior for training the update.</p>
+<hr class="docutils" />
+<p>Lambda Learner is a library for iterative incremental training of a class of supervised machine learning models. Using the Generalized Additive Mixed-Effect (GAME) framework, one can divide a model into two components, (a) Fixed Effects - a typically large “fixed effects” model (generalization) that is trained on the whole dataset to improve the model’s performance on previously unseen user-item pairs, and (b) Random Effects - a series of simpler linear “random-effects” models (memorization) trained on data corresponding to each entity (e.g. user or article or ad) for more granular personalization.</p>
+<p>The two main choices in defining a GAME architecture are 1) choosing the model class for the fixed effects model, and 2) choosing which random effects to include. The fixed effects model can be of any model class, typically Tensorflow, DeText, GDMix, XGBoost. As for the random effects, this choice is framed by your training data; specifically by the keys/ids of your training examples. If your training examples are keyed by a single id space (say userId), then you will have one series of random effects keyed by userId (per-user random effects). If your data is keyed by multiple id spaces (say userId, movieId), then you can have up to one series of random effects for every id type (per-user random effects, and per-movie random effects). However it’s not necessary to have random effects for all ids, with the choice being largely a modeling concern.</p>
+<p>Lambda Learner currently supports using any fixed-effects model, but only random effects for a single id type.</p>
+<p>Bringing these two pieces together, the residual score from the fixed effects model is improved using a random effect linear model, with the global model’s output score acting as the bias/offset for the linear model. Once the fixed effects model has been trained, the training of random effects can occur independently and in parallel. The library supports incremental updates to the random effects components of a GAME model in response to mini-batches from data streams. Currently the following algorithms for updating a random effect are supported:</p>
+<ul class="simple">
+<li><p>Linear regression.</p></li>
+<li><p>Logistic regression.</p></li>
+<li><p>Sequential Bayesian logistic regression (as described in the <a class="reference external" href="https://arxiv.org/abs/2010.05154">Lambda Learner paper</a>).</p></li>
+</ul>
+<p>The library supports maintaining a model coefficient Hessian matrix, representing uncertainty about model coefficient values, in addition to point estimates of the coefficients. This allows us to use the random effects as a multi-armed bandit using techniques such as Thompson Sampling.</p>
+<p>One of the most well-established applications of machine learning is in deciding what content to show website visitors. When observation data comes from high-velocity, user-generated data streams, machine learning methods perform a balancing act between model complexity, training time, and computational costs. Furthermore, when model freshness is critical, the training of models becomes time-constrained. Parallelized batch offline training, although horizontally scalable, is often not time-considerate or cost effective.</p>
+<p>Lambda Learner is capable of incrementally training the memorization part of the model (the random-effects components) as a performance booster over the generalization part. The frequent updates to these booster models over already powerful fixed-effect models improve personalization. Additionally, it allows for applications that require online bandits that are updated quickly.</p>
+<p><a class="reference external" href="https://engineering.linkedin.com/blog/2021/lambda-learner--nearline-learning-on-data-streams">Lambda Learner: Nearline learning on data streams</a></p>
+<p>In the GAME paradigm, random effects components can be trained independently of each other. This means that their update can be easily parallelized across nodes in a distributed computation framework. For example, this library can be used on top of Python Beam or PySpark. The distributed compute framework is used for parallelization and data orchestration, while the Lambda Learner library implements the update of random effects in individual compute tasks (DoFns in Beam or Task closures in PySpark).</p>
+<p><center><img src='_images/T392297_1.png'></center></p><div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install lambda-learner
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget -q --show-progress https://github.com/linkedin/lambda-learner/raw/main/test/resource/mock-ntv-data-1k.json
+!wget -q --show-progress https://github.com/linkedin/lambda-learner/raw/main/test/resource/movie-lense-training-data-u359
+!wget -q --show-progress https://github.com/linkedin/lambda-learner/raw/main/test/resource/movie-lense-test-data-u359
+!wget -q --show-progress https://github.com/linkedin/lambda-learner/raw/main/test/resource/movie-lense-initital-fixed-effect-model
+!wget -q --show-progress https://github.com/linkedin/lambda-learner/raw/main/test/resource/movie-lense-final-model-u359
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mock-ntv-data-1k.js 100%[===================&gt;] 357.45K  --.-KB/s    in 0.03s   
+movie-lense-trainin 100%[===================&gt;] 642.10K  --.-KB/s    in 0.04s   
+movie-lense-test-da 100%[===================&gt;]  86.28K  --.-KB/s    in 0.01s   
+movie-lense-initita 100%[===================&gt;]     383  --.-KB/s    in 0s      
+movie-lense-final-m 100%[===================&gt;]     624  --.-KB/s    in 0s      
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">permutations</span>
+
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.feature</span> <span class="kn">import</span> <span class="n">Feature</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.indexed_dataset</span> <span class="kn">import</span> <span class="n">IndexedDataset</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.record</span> <span class="kn">import</span> <span class="n">TrainingRecord</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.indexed_model</span> <span class="kn">import</span> <span class="n">IndexedModel</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.linear_scorer</span> <span class="kn">import</span> <span class="n">score_linear_model</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.utils.functions</span> <span class="kn">import</span> <span class="n">sparse_diag_matrix</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.index_map</span> <span class="kn">import</span> <span class="n">IndexMap</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.evaluator</span> <span class="kn">import</span> <span class="n">evaluate</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.hessian_type</span> <span class="kn">import</span> <span class="n">HessianType</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.trainer_square_loss_with_l2</span> <span class="kn">import</span> <span class="n">TrainerSquareLossWithL2</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.trainer_logistic_loss_with_l2</span> <span class="kn">import</span> <span class="n">TrainerLogisticLossWithL2</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.prediction.trainer_sequential_bayesian_logistic_loss_with_l2</span> <span class="kn">import</span> \
+    <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span>
+<span class="kn">from</span> <span class="nn">linkedin.learner.ds.representation_utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">index_domain_coeffs_to_nt_domain_coeffs</span><span class="p">,</span>
+    <span class="n">nt_domain_coeffs_to_index_domain_coeffs</span><span class="p">,</span>
+    <span class="n">nt_domain_data_to_index_domain_data</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">unittest</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MOCK_NTV_DATASET_PATH</span> <span class="o">=</span> <span class="s2">&quot;mock-ntv-data-1k.json&quot;</span>
+<span class="n">MOVIE_LENS_TRAINING_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;movie-lense-training-data-u359&quot;</span>
+<span class="n">MOVIE_LENS_TEST_DATA_PATH</span> <span class="o">=</span> <span class="s2">&quot;movie-lense-test-data-u359&quot;</span>
+<span class="n">MOVIE_LENS_INITIAL_MODEL_PATH</span> <span class="o">=</span> <span class="s2">&quot;movie-lense-initital-fixed-effect-model&quot;</span>
+<span class="n">MOVIE_LENS_EXPECTED_TRAINED_MODEL_PATH</span> <span class="o">=</span> <span class="s2">&quot;movie-lense-final-model-u359&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OFFLINE_RESPONSE</span> <span class="o">=</span> <span class="s2">&quot;label&quot;</span>
+<span class="n">WEIGHT</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span>
+<span class="n">FEATURES</span> <span class="o">=</span> <span class="s2">&quot;features&quot;</span>
+<span class="n">OFFSET</span> <span class="o">=</span> <span class="s2">&quot;offset&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Features are logged as name, term, value</span>
+<span class="n">FEATURE_NAME</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+<span class="n">FEATURE_TERM</span> <span class="o">=</span> <span class="s2">&quot;term&quot;</span>
+<span class="n">FEATURE_VALUE</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># How precise to make &quot;almost equal&quot; comparisons</span>
+<span class="n">PLACES_PRECISION</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">RELATIVE_PRECISION</span> <span class="o">=</span> <span class="mf">10e-6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sequences_almost_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rel_precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">RELATIVE_PRECISION</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test whether two sequences are uniformly pointwise different by at most a given factor.</span>
+<span class="sd">    This is a test helper intended to be used with [[assertTrue]] in a [[unittest.TestCase]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a_ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b_ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">zero_adjustment</span> <span class="o">=</span> <span class="p">((</span><span class="n">b_ndarray</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">rel_precision</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">a_ndarray</span> <span class="o">+</span> <span class="n">zero_adjustment</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b_ndarray</span> <span class="o">+</span> <span class="n">zero_adjustment</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">rel_precision</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">matrices_almost_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rel_precision</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">RELATIVE_PRECISION</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test whether two matrices are uniformly pointwise different by at most a given factor.</span>
+<span class="sd">    This is a test helper intended to be used with [[assertTrue]] in a [[unittest.TestCase]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">zero_adjustment</span> <span class="o">=</span> <span class="p">((</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">rel_precision</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">all</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">zero_adjustment</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">zero_adjustment</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">rel_precision</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">ensure_str</span><span class="p">(</span><span class="n">bytes_or_str</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ensures that an object which is either a string or bytes is treated as a string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">bytes_or_str</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bytes_or_str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="k">else</span> <span class="n">bytes_or_str</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_ntv_records_from_json</span><span class="p">(</span><span class="n">num_examples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_path</span><span class="o">=</span><span class="n">MOCK_NTV_DATASET_PATH</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read records from a file with one ntv json-formatted record per line.</span>
+<span class="sd">    :param num_examples: How many records to load? -1 means no limit.</span>
+<span class="sd">    :param data_path: Path to data file.</span>
+<span class="sd">    :return: List of loaded records.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">num_examples</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">records</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">file</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_examples</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">records</span> <span class="o">=</span> <span class="p">[</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">records</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_model</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read an index-domain model file with one coefficient per line.</span>
+<span class="sd">    :param file: Path to model file.</span>
+<span class="sd">    :returns: NDArray of coefficients.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tsv_data</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;Read a tab-separated value file of index-domain data, with one record per line.</span>
+<span class="sd">    :param file: Path to data file.</span>
+<span class="sd">    :returns: IndexedDataset representing the loaded data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">example_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
+        <span class="n">num_examples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">example_list</span><span class="p">)</span>
+
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">offsets</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_examples</span>  <span class="c1"># temporary value</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_examples</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">example</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">example_list</span><span class="p">):</span>
+            <span class="n">timestamp</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">feature_values</span> <span class="o">=</span> <span class="n">example</span>
+            <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">feature_values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">feature_values</span><span class="p">]</span>
+
+            <span class="c1"># Add intercept</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+
+            <span class="n">num_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">feature_values</span><span class="p">)</span>
+            <span class="n">feature_idx</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_features</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Add other features</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">feature_values</span><span class="p">)</span>
+            <span class="n">cols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">feature_idx</span><span class="p">)</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">idx</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_features</span><span class="p">)</span>
+
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">values</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_examples</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">num_features</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+
+        <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">offsets</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">IndexedDataset</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_movie_lens_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Read the movie lens data for testing.</span>
+<span class="sd">    :returns: Movie Lens training and test datasets.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">read_model</span><span class="p">(</span><span class="n">MOVIE_LENS_INITIAL_MODEL_PATH</span><span class="p">)</span>
+    <span class="n">training_data</span> <span class="o">=</span> <span class="n">read_tsv_data</span><span class="p">(</span><span class="n">MOVIE_LENS_TRAINING_DATA_PATH</span><span class="p">)</span>
+    <span class="n">test_data</span> <span class="o">=</span> <span class="n">read_tsv_data</span><span class="p">(</span><span class="n">MOVIE_LENS_TEST_DATA_PATH</span><span class="p">)</span>
+
+    <span class="n">training_data</span><span class="o">.</span><span class="n">offsets</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">X</span> <span class="o">*</span> <span class="n">theta</span>
+    <span class="n">test_data</span><span class="o">.</span><span class="n">offsets</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">X</span> <span class="o">*</span> <span class="n">theta</span>
+
+    <span class="k">return</span> <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_expected_movie_lens_training_result</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Read the expected movie lens training result (the trained model).</span>
+<span class="sd">    :returns: NDArray representing the loaded model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">read_model</span><span class="p">(</span><span class="n">MOVIE_LENS_EXPECTED_TRAINED_MODEL_PATH</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">features_from_json</span><span class="p">(</span><span class="n">features_json</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">feature_name_translation_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Feature</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Convert a bag of json-like features to Feature format.</span>
+<span class="sd">    :param features_json: A list of features as parsed directly from json.</span>
+<span class="sd">    :param feature_name_translation_map: (Optional) Mapping for using different names internally.</span>
+<span class="sd">    :return: A list of Features.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">feature_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features_json</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">feature</span><span class="p">[</span><span class="n">FEATURE_NAME</span><span class="p">],</span> <span class="n">feature</span><span class="p">[</span><span class="n">FEATURE_TERM</span><span class="p">],</span> <span class="n">feature</span><span class="p">[</span><span class="n">FEATURE_VALUE</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">feature_name_translation_map</span><span class="p">:</span>
+            <span class="c1"># use all features as they are</span>
+            <span class="n">feature_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Feature</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">feature_name_translation_map</span><span class="p">:</span>
+            <span class="c1"># use a subset of features, possibly translated to a different name</span>
+            <span class="c1"># otherwise we drop this feature and don&#39;t use it in retraining</span>
+            <span class="n">translated_feature_name</span> <span class="o">=</span> <span class="n">feature_name_translation_map</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="n">feature_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Feature</span><span class="p">(</span><span class="n">translated_feature_name</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">feature_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">training_record_from_json</span><span class="p">(</span><span class="n">record_json</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TrainingRecord</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Convert a json-like record in TrainingRecord format.</span>
+<span class="sd">    :param record_json: A record as parsed directly from json.</span>
+<span class="sd">    :return: A TrainingRecord object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">features_json</span> <span class="o">=</span> <span class="n">record_json</span><span class="p">[</span><span class="n">FEATURES</span><span class="p">]</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">features_from_json</span><span class="p">(</span><span class="n">features_json</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TrainingRecord</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">record_json</span><span class="p">[</span><span class="n">OFFLINE_RESPONSE</span><span class="p">],</span> <span class="n">weight</span><span class="o">=</span><span class="n">record_json</span><span class="p">[</span><span class="n">WEIGHT</span><span class="p">],</span> <span class="n">offset</span><span class="o">=</span><span class="n">record_json</span><span class="p">[</span><span class="n">OFFSET</span><span class="p">],</span> <span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_mock_training_data</span><span class="p">(</span><span class="n">num_examples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Load large mock data and index it.</span>
+<span class="sd">    :param num_examples: How many examples to load.</span>
+<span class="sd">    :returns: A tuple of IndexedDataset, IndexMap</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">raw_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">training_record_from_json</span><span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">read_ntv_records_from_json</span><span class="p">(</span><span class="n">num_examples</span><span class="p">)]</span>
+    <span class="n">imap</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[])</span>
+    <span class="n">indexed_data</span> <span class="o">=</span> <span class="n">nt_domain_data_to_index_domain_data</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">imap</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">indexed_data</span><span class="p">,</span> <span class="n">imap</span>
+
+
+<span class="k">def</span> <span class="nf">simple_mock_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Load a very small mock dataset.</span>
+<span class="sd">    :returns: A tuple of IndexedDataset, IndexedModel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">indexed_data</span> <span class="o">=</span> <span class="n">IndexedDataset</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
+
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">])</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">theta</span><span class="p">,</span> <span class="n">hessian</span><span class="o">=</span><span class="n">sparse_diag_matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="linear-scorer">
+<h2>Linear Scorer<a class="headerlink" href="#linear-scorer" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mock_indexed_data</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get a very small mock indexed dataset.&quot;&quot;&quot;</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+    <span class="n">design_matrix</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]]))</span>
+    <span class="k">return</span> <span class="n">IndexedDataset</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">offsets</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LinearScorerTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_score_linear_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test linear scoring in the general case.&quot;&quot;&quot;</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">sparse_diag_matrix</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">])</span>
+        <span class="n">indexed_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">hessian</span><span class="p">)</span>
+
+        <span class="n">indexed_data</span> <span class="o">=</span> <span class="n">mock_indexed_data</span><span class="p">()</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">indexed_model</span><span class="p">,</span> <span class="n">indexed_data</span><span class="p">)</span>
+
+        <span class="n">expected_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="mf">0.2</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="mf">1.3</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">scores</span> <span class="o">==</span> <span class="n">expected_scores</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Scores match expected scores. Actual </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2"> == expected </span><span class="si">{</span><span class="n">expected_scores</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">scores_with_exploration</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">indexed_model</span><span class="p">,</span> <span class="n">indexed_data</span><span class="p">,</span> <span class="n">exploration_threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="nb">all</span><span class="p">(</span><span class="n">scores_with_exploration</span> <span class="o">!=</span> <span class="n">expected_scores</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Scores with exploration don&#39;t exactly match expected scores. Actual </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2"> == expected </span><span class="si">{</span><span class="n">expected_scores</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_score_linear_model_offsets_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test linear scoring when all coefficients are zero.&quot;&quot;&quot;</span>
+        <span class="n">num_features</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_features</span><span class="p">)</span>
+        <span class="n">indexed_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">indexed_data</span> <span class="o">=</span> <span class="n">mock_indexed_data</span><span class="p">()</span>
+
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">indexed_model</span><span class="p">,</span> <span class="n">indexed_data</span><span class="p">)</span>
+
+        <span class="n">expected_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="nb">all</span><span class="p">(</span><span class="n">scores</span> <span class="o">==</span> <span class="n">expected_scores</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Offsets are used for scores when model coeffs are all zero/missing. Actual </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2"> == expected </span><span class="si">{</span><span class="n">expected_scores</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="trainers">
+<h2>Trainers<a class="headerlink" href="#trainers" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TrainerSquareLossWithL2Test</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_square_loss_with_l2_loss_and_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the loss and gradient functions.</span>
+<span class="sd">        The expected values in this test are set using this implementation, so this</span>
+<span class="sd">        is a test against regression, rather than strictly a test of correctness.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">training_data</span><span class="p">,</span> <span class="n">test_data</span> <span class="o">=</span> <span class="n">read_movie_lens_data</span><span class="p">()</span>
+
+        <span class="n">theta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">training_data</span><span class="o">.</span><span class="n">num_features</span><span class="p">)</span>
+        <span class="n">initial_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="n">trainer</span> <span class="o">=</span> <span class="n">TrainerSquareLossWithL2</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">training_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">initial_model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">final_model</span><span class="p">,</span> <span class="n">final_loss</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mf">1e4</span><span class="p">,</span> <span class="n">num_corrections</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+        <span class="n">actual_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">final_model</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="n">test_data</span><span class="p">)</span>
+        <span class="n">final_rmse</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">actual_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">test_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;rmse&quot;</span><span class="p">]</span>
+
+        <span class="n">expected_theta</span> <span class="o">=</span> <span class="n">read_expected_movie_lens_training_result</span><span class="p">()</span>
+        <span class="n">expected_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">expected_theta</span><span class="p">)</span>
+        <span class="n">expected_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">expected_model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
+        <span class="n">expected_rmse</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">expected_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">test_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;rmse&quot;</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">expected_rmse</span><span class="p">,</span> <span class="n">final_rmse</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">sequences_almost_equal</span><span class="p">(</span><span class="n">expected_theta</span><span class="p">,</span> <span class="n">final_model</span><span class="o">.</span><span class="n">theta</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Theta as expected: Expected = </span><span class="si">{</span><span class="n">expected_theta</span><span class="si">}</span><span class="s2">, Actual = </span><span class="si">{</span><span class="n">final_model</span><span class="o">.</span><span class="n">theta</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_square_loss_with_l2_update_hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the Hessian update.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerSquareLossWithL2</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">FULL</span><span class="p">)</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">_update_full_hessian</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span>
+
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="mf">0.0760066037</span><span class="p">,</span> <span class="mf">0.00782668920</span><span class="p">,</span> <span class="mf">0.1676665858</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.00782668920</span><span class="p">,</span> <span class="mf">0.00391334460</span><span class="p">,</span> <span class="mf">0.02348006762</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.1676665858</span><span class="p">,</span> <span class="mf">0.02348006762</span><span class="p">,</span> <span class="mf">0.382293306</span><span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">matrices_almost_equal</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">expected_hessian</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Hessian computation is correct. Actual </span><span class="si">{</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> == Expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TrainerLogisticLossWithL2Test</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_lr_loss_and_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the loss and gradient functions.</span>
+<span class="sd">        The expected values in this test are set using this implementation, so this</span>
+<span class="sd">        is a test against regression, rather than strictly a test of correctness.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">generate_mock_training_data</span><span class="p">()</span>
+
+        <span class="n">theta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">initial_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerLogisticLossWithL2</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">initial_model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">initial_loss</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">initial_loss</span><span class="p">,</span> <span class="mf">153042.61089443817</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="s2">&quot;Expect loss is calculated correctly.&quot;</span><span class="p">)</span>
+
+        <span class="n">initial_gradient</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">sequences_almost_equal</span><span class="p">(</span><span class="n">initial_gradient</span><span class="p">,</span> <span class="p">[</span><span class="mf">1038.0</span><span class="p">,</span> <span class="mf">1998.0</span><span class="p">,</span> <span class="mf">879.0</span><span class="p">,</span> <span class="mf">879.0</span><span class="p">,</span> <span class="mf">1008.0</span><span class="p">,</span> <span class="mf">1008.0</span><span class="p">,</span> <span class="mf">134.0</span><span class="p">,</span> <span class="mf">134.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">]),</span>
+            <span class="s2">&quot;Expect gradient is calculated correctly.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">final_model</span><span class="p">,</span> <span class="n">final_loss</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">sequences_almost_equal</span><span class="p">(</span>
+                <span class="n">final_model</span><span class="o">.</span><span class="n">theta</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="o">-</span><span class="mf">0.14982811627991494</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.14982824552049578</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.19636393879356379</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.19636393879356379</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.1498281122411468</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.1498281122411468</span><span class="p">,</span>
+                    <span class="mf">0.04935191200563128</span><span class="p">,</span>
+                    <span class="mf">0.04935191200563128</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.0028160881457262527</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">0.0028160881457262527</span><span class="p">,</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;Expect theta after optimization is correct.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">final_loss</span><span class="p">,</span> <span class="mf">15.666764037573559</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="s2">&quot;Expect lost after optimization is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;warnflag&quot;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expect convergence status is 0, meaning successful convergence.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;nit&quot;</span><span class="p">],</span> <span class="mi">13</span><span class="p">,</span> <span class="s2">&quot;Expect number of iterations is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;funcalls&quot;</span><span class="p">],</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;Expect number of function calls is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">ensure_str</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]),</span> <span class="s2">&quot;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Expect convergence reason is as expected&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Score (on the training data)</span>
+        <span class="n">initial_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">initial_model</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">)</span>
+        <span class="n">initial_auc</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;auc&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">initial_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;auc&quot;</span><span class="p">]</span>
+        <span class="n">final_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">final_model</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">)</span>
+        <span class="n">final_auc</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;auc&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">final_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;auc&quot;</span><span class="p">]</span>
+
+        <span class="n">expected_initial_auc</span> <span class="o">=</span> <span class="mf">0.5290581162324649</span>
+        <span class="n">expected_final_auc</span> <span class="o">=</span> <span class="mf">0.6137274549098197</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+            <span class="n">initial_auc</span><span class="p">,</span> <span class="n">expected_initial_auc</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Initial AUC: expected </span><span class="si">{</span><span class="n">expected_initial_auc</span><span class="si">}</span><span class="s2"> == actual </span><span class="si">{</span><span class="n">initial_auc</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+            <span class="n">final_auc</span><span class="p">,</span> <span class="n">expected_final_auc</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Final AUC: expected </span><span class="si">{</span><span class="n">expected_final_auc</span><span class="si">}</span><span class="s2"> == actual </span><span class="si">{</span><span class="n">final_auc</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_lr_update_hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the Hessian update.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerLogisticLossWithL2</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">FULL</span><span class="p">)</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">_update_full_hessian</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span>
+
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="mf">10.076006603</span><span class="p">,</span> <span class="mf">0.007826689207</span><span class="p">,</span> <span class="mf">0.16766658587</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.007826689207</span><span class="p">,</span> <span class="mf">10.003913344</span><span class="p">,</span> <span class="mf">0.023480067621</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.16766658587</span><span class="p">,</span> <span class="mf">0.023480067621</span><span class="p">,</span> <span class="mf">10.382293306</span><span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">matrices_almost_equal</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">expected_hessian</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Hessian computation is correct. Actual </span><span class="si">{</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> == Expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TrainerSequentialBayesianLogisticLossWithL2Test</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_incremental_lr_loss_and_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the loss and gradient functions.</span>
+<span class="sd">        The expected values in this test are set using this implementation, so this</span>
+<span class="sd">        is a test against regression, rather than strictly a test of correctness.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">generate_mock_training_data</span><span class="p">()</span>
+
+        <span class="n">theta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">initial_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="n">theta_0</span><span class="p">)</span>
+        <span class="c1">#  Discrepancies with offline: (1) Labels are 0/1; in reality the data processing will set it to -1/+1.</span>
+        <span class="c1">#  (2) Intercept gets regularized nearline but not offline, (3) This test should ideally only set initial_theta</span>
+        <span class="c1">#  without changing hist_theta, but current implementation does not allow that.</span>
+
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span><span class="p">(</span><span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">initial_model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">initial_loss</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">initial_loss</span><span class="p">,</span> <span class="mf">112946.61089443817</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="s2">&quot;Expect loss is calculated correctly.&quot;</span><span class="p">)</span>
+
+        <span class="n">initial_gradient</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">theta_0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">sequences_almost_equal</span><span class="p">(</span><span class="n">initial_gradient</span><span class="p">,</span> <span class="p">[</span><span class="mf">1006.0</span><span class="p">,</span> <span class="mf">1198.0</span><span class="p">,</span> <span class="mf">871.0</span><span class="p">,</span> <span class="mf">871.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">,</span> <span class="mf">126.0</span><span class="p">,</span> <span class="mf">126.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]),</span>
+            <span class="s2">&quot;Expect gradient is calculated correctly.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">final_model</span><span class="p">,</span> <span class="n">final_loss</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">sequences_almost_equal</span><span class="p">(</span>
+                <span class="n">final_model</span><span class="o">.</span><span class="n">theta</span><span class="p">,</span>
+                <span class="p">[</span>
+                    <span class="o">-</span><span class="mf">13.37418015</span><span class="p">,</span>
+                    <span class="mf">63.42582255</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">7.97896804</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">7.97896804</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">15.77418024</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">15.77418024</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">6.49519736</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mf">6.49519736</span><span class="p">,</span>
+                    <span class="mf">0.29998522</span><span class="p">,</span>
+                    <span class="mf">0.29998522</span><span class="p">,</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+            <span class="s2">&quot;Expect theta after optimization is correct.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">final_loss</span><span class="p">,</span> <span class="mf">15104.873256903807</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="s2">&quot;Expect lost after optimization is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;warnflag&quot;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Expect convergence status is 0, meaning successful convergence.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;nit&quot;</span><span class="p">],</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Expect number of iterations is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;funcalls&quot;</span><span class="p">],</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Expect number of function calls is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">ensure_str</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;task&quot;</span><span class="p">]),</span> <span class="s2">&quot;CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Expect convergence reason is as expected&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Score (on the training data)</span>
+        <span class="n">initial_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">initial_model</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">)</span>
+        <span class="n">initial_auc</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;auc&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">initial_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;auc&quot;</span><span class="p">]</span>
+        <span class="n">final_scores</span> <span class="o">=</span> <span class="n">score_linear_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">final_model</span><span class="p">,</span> <span class="n">test_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">)</span>
+        <span class="n">final_auc</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">metric_list</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;auc&quot;</span><span class="p">],</span> <span class="n">y_scores</span><span class="o">=</span><span class="n">final_scores</span><span class="p">,</span> <span class="n">y_targets</span><span class="o">=</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="s2">&quot;auc&quot;</span><span class="p">]</span>
+
+        <span class="n">expected_initial_auc</span> <span class="o">=</span> <span class="mf">0.5290581162324649</span>
+        <span class="n">expected_final_auc</span> <span class="o">=</span> <span class="mf">0.7059118236472945</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+            <span class="n">initial_auc</span><span class="p">,</span> <span class="n">expected_initial_auc</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Initial AUC: expected </span><span class="si">{</span><span class="n">expected_initial_auc</span><span class="si">}</span><span class="s2"> == actual </span><span class="si">{</span><span class="n">initial_auc</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span>
+            <span class="n">final_auc</span><span class="p">,</span> <span class="n">expected_final_auc</span><span class="p">,</span> <span class="n">PLACES_PRECISION</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Final AUC: expected </span><span class="si">{</span><span class="n">expected_final_auc</span><span class="si">}</span><span class="s2"> == actual </span><span class="si">{</span><span class="n">final_auc</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_incremental_lr_update_hessian</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the Hessian update when using a full Hessian.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span><span class="p">(</span>
+            <span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">FULL</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="p">)</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">_update_hessian</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[[</span><span class="mf">1.076006603</span><span class="p">,</span> <span class="mf">0.007826689</span><span class="p">,</span> <span class="mf">0.167666585</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.007826689</span><span class="p">,</span> <span class="mf">1.003913344</span><span class="p">,</span> <span class="mf">0.023480067</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.167666585</span><span class="p">,</span> <span class="mf">0.023480067</span><span class="p">,</span> <span class="mf">1.382293306</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">matrices_almost_equal</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">expected_hessian</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;(Full) Hessian computation is correct. Actual </span><span class="si">{</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> == Expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_incremental_lr_update_hessian_diagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the Hessian update when using a diagonal Hessian.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span><span class="p">(</span>
+            <span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">DIAGONAL</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="p">)</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">_update_hessian</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.076006603</span><span class="p">,</span> <span class="mf">1.003913344</span><span class="p">,</span> <span class="mf">1.382293306</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">matrices_almost_equal</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">expected_hessian</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;(Diagonal) Hessian computation is correct. Actual </span><span class="si">{</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> == Expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_incremental_lr_update_hessian_identity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test the Hessian update when using an identity Hessian.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+        <span class="n">lr</span> <span class="o">=</span> <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span><span class="p">(</span>
+            <span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">IDENTITY</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mf">1.0</span>
+        <span class="p">)</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">lr</span><span class="o">.</span><span class="n">_update_hessian</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">theta</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="n">matrices_almost_equal</span><span class="p">(</span><span class="n">hessian</span><span class="p">,</span> <span class="n">expected_hessian</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;Hessian computation is correct. Actual </span><span class="si">{</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> == Expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_hessian_computation_is_optional</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test that the Hessian update is optional.&quot;&quot;&quot;</span>
+        <span class="n">indexed_data</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">simple_mock_data</span><span class="p">()</span>
+
+        <span class="n">trainer</span> <span class="o">=</span> <span class="n">TrainerSequentialBayesianLogisticLossWithL2</span><span class="p">(</span>
+            <span class="n">training_data</span><span class="o">=</span><span class="n">indexed_data</span><span class="p">,</span> <span class="n">initial_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hessian_type</span><span class="o">=</span><span class="n">HessianType</span><span class="o">.</span><span class="n">NONE</span>
+        <span class="p">)</span>
+        <span class="n">final_model</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mf">1e4</span><span class="p">,</span> <span class="n">num_corrections</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">final_model</span><span class="o">.</span><span class="n">hessian</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Hessian computation optional.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-representations">
+<h2>Data Representations<a class="headerlink" href="#data-representations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IndexMapTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_default_imap_construction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Intercept is already indexed.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">intercept_nt</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">),</span> <span class="s1">&#39;Intercept name and term are both &quot;intercept&quot; by default.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">intercept_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Intercept is indexed first.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_custom_imap_construction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="p">(</span><span class="s2">&quot;iname&quot;</span><span class="p">,</span> <span class="s2">&quot;iterm&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Intercept is already indexed.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">intercept_nt</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;iname&quot;</span><span class="p">,</span> <span class="s2">&quot;iterm&quot;</span><span class="p">),</span> <span class="s1">&#39;Intercept name and term are both &quot;intercept&quot; by default.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">intercept_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Intercept is indexed first.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_imap_index_errors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Trying to get unindexed features results in IndexError&quot;</span><span class="p">):</span>
+            <span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">n1t1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">)</span>
+        <span class="n">imap</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">n1t1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">n1t1</span><span class="p">,</span> <span class="s2">&quot;IndexError no longer raised once index has been assigned.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_one_at_a_time_imap_construction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Intercept is already indexed.&quot;</span><span class="p">)</span>
+
+        <span class="n">n1t1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">)</span>
+        <span class="n">imap</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">n1t1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Pushing a new one feature increases the imap size by 1.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">n1t1</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;The next available index is used.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">n1t1</span><span class="p">,</span> <span class="s2">&quot;The feature can be retrieved using its index.&quot;</span><span class="p">)</span>
+
+        <span class="n">imap</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">n1t1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Pushing an already added feature does nothing.&quot;</span><span class="p">)</span>
+
+        <span class="n">n1t2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">)</span>
+        <span class="n">imap</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">n1t2</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Pushing another new feature increases the imap size by 1.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_batch_imap_construction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">imap</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="p">()</span>
+
+        <span class="n">imap</span><span class="o">.</span><span class="n">batch_push</span><span class="p">([(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">)])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;Pushing 5 distinct features results in 6 indexed features (including the intercept).&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+                <span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span>
+                <span class="n">i</span><span class="p">,</span>
+                <span class="s2">&quot;The imap defines a one-to-one mapping from the index domain to the feature name-term domain.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">expected_nts_1</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">)]</span>
+
+        <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="n">expected_nts_1</span><span class="p">:</span>
+            <span class="c1"># Success here just means it did not throw. The actual mapping is an implementation detail.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreaterEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Can forward-lookup an added feature: </span><span class="si">{</span><span class="n">nt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="n">imap</span><span class="o">.</span><span class="n">batch_push</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="c1"># Already indexed</span>
+                <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span>
+                <span class="c1"># Not yet indexed</span>
+                <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Pushing a mix of indexed and un-indexed features, only the un-indexed are added.&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;After multiple batch pushes the index mapping remains correct.&quot;</span><span class="p">)</span>
+
+        <span class="n">expected_nts_2</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="n">expected_nts_2</span><span class="p">:</span>
+            <span class="c1"># Success here just means it did not throw. The actual mapping is an implementation detail.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreaterEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Can forward-lookup an added feature: </span><span class="si">{</span><span class="n">nt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_from_records_means_and_variances_builder</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># coefficients</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+
+        <span class="c1"># training data</span>
+        <span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]),</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]),</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span>
+                <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t4&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+            <span class="p">),</span>
+        <span class="p">]</span>
+
+        <span class="n">imap</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imap</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+                <span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_nt</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span>
+                <span class="n">i</span><span class="p">,</span>
+                <span class="s2">&quot;The imap defines a one-to-one mapping from the index domain to the feature name-term domain.&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">expected_nts</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t4&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">nt</span> <span class="ow">in</span> <span class="n">expected_nts</span><span class="p">:</span>
+            <span class="c1"># Success here just means it did not throw. The actual mapping is an implementation detail.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertGreaterEqual</span><span class="p">(</span><span class="n">imap</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Can forward-lookup an added feature: </span><span class="si">{</span><span class="n">nt</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;num_nts_in_both&quot;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Correct metadata: num features in shared by records and coeffs.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;num_nts_in_coeffs_only&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Correct metadata: num features only in coeffs.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;num_nts_in_records_only&quot;</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Correct metadata: num features only in records.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RepresentationUtilsTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">test_nt_domain_data_to_index_domain_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]),</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)]),</span>
+            <span class="n">TrainingRecord</span><span class="p">(</span>
+                <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n3&quot;</span><span class="p">,</span> <span class="s2">&quot;t4&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)]</span>
+            <span class="p">),</span>
+        <span class="p">]</span>
+
+        <span class="n">imap</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[])</span>
+
+        <span class="n">indexed_data</span> <span class="o">=</span> <span class="n">nt_domain_data_to_index_domain_data</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">imap</span><span class="p">)</span>
+
+        <span class="n">expected_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">expected_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">expected_offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">expected_y</span><span class="p">),</span> <span class="s2">&quot;Index-domain labels are correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">w</span> <span class="o">==</span> <span class="n">expected_w</span><span class="p">),</span> <span class="s2">&quot;Index-domain weights are correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">offsets</span> <span class="o">==</span> <span class="n">expected_offsets</span><span class="p">),</span> <span class="s2">&quot;Index-domain offsets are correct.&quot;</span><span class="p">)</span>
+
+        <span class="n">expected_sparse_matrix</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]])</span>
+        <span class="p">)</span>
+
+        <span class="n">num_mismatches</span> <span class="o">=</span> <span class="p">(</span><span class="n">indexed_data</span><span class="o">.</span><span class="n">X</span> <span class="o">!=</span> <span class="n">expected_sparse_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">nnz</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">num_mismatches</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Index-domain design matrix is correct.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_nt_domain_coeffs_to_index_domain_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)]</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n2&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
+        <span class="n">imap</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">([],</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+        <span class="n">indexed_model</span> <span class="o">=</span> <span class="n">nt_domain_coeffs_to_index_domain_coeffs</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">imap</span><span class="p">,</span> <span class="n">regularization_param</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">expected_theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+        <span class="n">expected_hessian</span> <span class="o">=</span> <span class="n">sparse_diag_matrix</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.3</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="nb">all</span><span class="p">(</span><span class="n">indexed_model</span><span class="o">.</span><span class="n">theta</span> <span class="o">==</span> <span class="n">expected_theta</span><span class="p">),</span>
+            <span class="sa">f</span><span class="s2">&quot;(Index-domain) theta is correct. Actual </span><span class="si">{</span><span class="n">indexed_model</span><span class="o">.</span><span class="n">theta</span><span class="si">}</span><span class="s2"> ==  expected </span><span class="si">{</span><span class="n">expected_theta</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span>
+            <span class="nb">all</span><span class="p">((</span><span class="n">indexed_model</span><span class="o">.</span><span class="n">hessian</span> <span class="o">==</span> <span class="n">expected_hessian</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+            <span class="sa">f</span><span class="s2">&quot;(Index-domain) hessian is correct. Actual </span><span class="si">{</span><span class="n">indexed_model</span><span class="o">.</span><span class="n">hessian</span><span class="si">}</span><span class="s2"> ==  expected </span><span class="si">{</span><span class="n">expected_hessian</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_index_domain_coeffs_to_nt_domain_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)]</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)]</span>
+        <span class="n">imap</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">([],</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
+        <span class="n">hessian</span> <span class="o">=</span> <span class="n">sparse_diag_matrix</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">1.3</span><span class="p">])</span>
+        <span class="n">indexed_model</span> <span class="o">=</span> <span class="n">IndexedModel</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">hessian</span><span class="p">)</span>
+        <span class="n">mean_dict</span><span class="p">,</span> <span class="n">variance_dict</span> <span class="o">=</span> <span class="n">index_domain_coeffs_to_nt_domain_coeffs</span><span class="p">(</span><span class="n">indexed_model</span><span class="p">,</span> <span class="n">imap</span><span class="p">)</span>
+
+        <span class="n">expected_mean_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">):</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">):</span> <span class="mf">0.1</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">):</span> <span class="mf">0.2</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">):</span> <span class="mf">0.3</span><span class="p">}</span>
+        <span class="n">expected_variance_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">):</span> <span class="mf">2.0</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">):</span> <span class="mf">1.1</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">):</span> <span class="mf">1.2</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">):</span> <span class="mf">1.3</span><span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">mean_dict</span><span class="p">,</span> <span class="n">expected_mean_dict</span><span class="p">,</span> <span class="s2">&quot;(Index-domain) theta is correct.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">variance_dict</span><span class="p">,</span> <span class="n">expected_variance_dict</span><span class="p">,</span> <span class="s2">&quot;(Index-domain) hessian is correct.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_nt_index_domain_full_cycle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">Feature</span><span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)]</span>
+
+        <span class="n">expected_coeff_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;intercept&quot;</span><span class="p">):</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">):</span> <span class="mf">0.1</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">):</span> <span class="mf">0.2</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;n1&quot;</span><span class="p">,</span> <span class="s2">&quot;t3&quot;</span><span class="p">):</span> <span class="mf">0.3</span><span class="p">}</span>
+
+        <span class="n">feature_permutations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
+
+        <span class="c1"># Test all permutations, to ensure correctness is independent of the particular mapping the imap produces.</span>
+        <span class="k">for</span> <span class="n">ordered_features</span> <span class="ow">in</span> <span class="n">feature_permutations</span><span class="p">:</span>
+            <span class="n">means</span><span class="p">,</span> <span class="n">variances</span> <span class="o">=</span> <span class="n">ordered_features</span><span class="p">,</span> <span class="n">ordered_features</span>
+            <span class="n">imap</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">IndexMap</span><span class="o">.</span><span class="n">from_records_means_and_variances</span><span class="p">([],</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+            <span class="n">indexed_model</span> <span class="o">=</span> <span class="n">nt_domain_coeffs_to_index_domain_coeffs</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">,</span> <span class="n">imap</span><span class="p">,</span> <span class="n">regularization_param</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">mean_dict</span><span class="p">,</span> <span class="n">variance_dict</span> <span class="o">=</span> <span class="n">index_domain_coeffs_to_nt_domain_coeffs</span><span class="p">(</span><span class="n">indexed_model</span><span class="p">,</span> <span class="n">imap</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+                <span class="n">mean_dict</span><span class="p">,</span> <span class="n">expected_coeff_dict</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;(Index-domain) theta is correct, given feature ordering: </span><span class="si">{</span><span class="n">ordered_features</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+                <span class="n">variance_dict</span><span class="p">,</span> <span class="n">expected_coeff_dict</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;(Index-domain) hessian is correct, given feature ordering: </span><span class="si">{</span><span class="n">ordered_features</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unittest">
+<h2>UnitTest<a class="headerlink" href="#unittest" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_batch_imap_construction (__main__.IndexMapTest) ... ok
+test_custom_imap_construction (__main__.IndexMapTest) ... ok
+test_default_imap_construction (__main__.IndexMapTest) ... ok
+test_from_records_means_and_variances_builder (__main__.IndexMapTest) ... ok
+test_imap_index_errors (__main__.IndexMapTest) ... ok
+test_one_at_a_time_imap_construction (__main__.IndexMapTest) ... ok
+test_score_linear_model (__main__.LinearScorerTest)
+Test linear scoring in the general case. ... ok
+test_score_linear_model_offsets_only (__main__.LinearScorerTest)
+Test linear scoring when all coefficients are zero. ... ok
+test_index_domain_coeffs_to_nt_domain_coeffs (__main__.RepresentationUtilsTest) ... ok
+test_nt_domain_coeffs_to_index_domain_coeffs (__main__.RepresentationUtilsTest) ... /usr/lib/python3.7/unittest/case.py:628: SparseEfficiencyWarning: Comparing sparse matrices using == is inefficient, try using != instead.
+  testMethod()
+ok
+test_nt_domain_data_to_index_domain_data (__main__.RepresentationUtilsTest) ... ok
+test_nt_index_domain_full_cycle (__main__.RepresentationUtilsTest) ... ok
+test_lr_loss_and_gradient (__main__.TrainerLogisticLossWithL2Test)
+Test the loss and gradient functions. ... ok
+test_lr_update_hessian (__main__.TrainerLogisticLossWithL2Test)
+Test the Hessian update. ... ok
+test_hessian_computation_is_optional (__main__.TrainerSequentialBayesianLogisticLossWithL2Test)
+Test that the Hessian update is optional. ... ok
+test_incremental_lr_loss_and_gradient (__main__.TrainerSequentialBayesianLogisticLossWithL2Test)
+Test the loss and gradient functions. ... ok
+test_incremental_lr_update_hessian (__main__.TrainerSequentialBayesianLogisticLossWithL2Test)
+Test the Hessian update when using a full Hessian. ... ok
+test_incremental_lr_update_hessian_diagonal (__main__.TrainerSequentialBayesianLogisticLossWithL2Test)
+Test the Hessian update when using a diagonal Hessian. ... ok
+test_incremental_lr_update_hessian_identity (__main__.TrainerSequentialBayesianLogisticLossWithL2Test)
+Test the Hessian update when using an identity Hessian. ... ok
+test_square_loss_with_l2_loss_and_gradient (__main__.TrainerSquareLossWithL2Test)
+Test the loss and gradient functions. ... ok
+test_square_loss_with_l2_update_hessian (__main__.TrainerSquareLossWithL2Test)
+Test the Hessian update. ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.281s
+
+OK
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fa4bf892a10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/incremental-learning",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T860884_Avalanche_Visual_Incremental_Learning.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Avalanche Visual Incremental Learning</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T007121_FlowRec.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">FlowRec</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
