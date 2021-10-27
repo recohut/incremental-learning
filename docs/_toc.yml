@@ -1,0 +1,22 @@
+format: jb-book
+root: L521041_Incremental_Learning
+parts:
+- caption: Concepts
+  chapters:
+  - file: L194114_Concept_Drift
+  - file: L589394_Jensen–Shannon_divergence
+  - file: L241645_A_spectrum_of_model_freshness
+  - file: L883094_Incremental_Learning_in_Computer_Vision
+  - file: L369117_Incremental_Learning_in_Recommender_Systems
+  - file: L725007_River
+  - file: L595800_Lambda_Learner
+  - file: L305905_Scikit_warm_start
+- caption: Models
+  chapters:
+  - file: L498804_GLMix
+  - file: L832818_IncCTR
+  - file: L753817_SML
+  - file: L395827_CIGC
+  - file: L958254_GraphSAIL
+  - file: L926913_NMRN
+  - file: L766388_RKMF
