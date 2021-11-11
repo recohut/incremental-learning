@@ -1,0 +1,3 @@
+train_config: {'method': 'pretrain', 'dir_name': 'pretrain_train1-10_test11_10epoch_0.001', 'start_date': 20140901, 'end_date': 20141231, 'num_periods': 31, 'train_start_period': 1, 'train_end_period': 10, 'test_period': 11, 'train_set_size': 543650, 'test_set_size': 54365, 'base_optimizer': 'adam', 'base_lr': 0.001, 'base_bs': 256, 'base_num_epochs': 10, 'shuffle': True}
+
+EmbMLPnocate_hyperparams: {'num_users': 17126, 'num_items': 24785, 'user_embed_dim': 8, 'item_embed_dim': 8, 'layers': [24, 12, 6, 1]}

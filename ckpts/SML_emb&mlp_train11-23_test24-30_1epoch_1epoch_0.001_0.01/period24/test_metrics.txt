@@ -1,0 +1,4 @@
+test_aucs: [0.79914774832016]
+average_auc: 0.79914774832016
+test_loglosses: [0.5447032297292195]
+average_logloss: 0.5447032297292195

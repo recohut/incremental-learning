@@ -1,0 +1,2 @@
+model_checkpoint_path: "Epoch1_TestAUC0.7889_TestLOGLOSS0.6412.ckpt"
+all_model_checkpoint_paths: "Epoch1_TestAUC0.7889_TestLOGLOSS0.6412.ckpt"
